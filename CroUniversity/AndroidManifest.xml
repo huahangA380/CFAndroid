@@ -16,7 +16,6 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
->
         <activity
             android:name="com.crouniversity.initiate.SplashActivity"
             android:label="@string/app_name"
@@ -34,6 +33,7 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <activity
             android:name="com.crouniversity.main.MainActivity"
+            android:icon="@drawable/ic_launcher"
             android:screenOrientation="portrait" />
     </application>
 

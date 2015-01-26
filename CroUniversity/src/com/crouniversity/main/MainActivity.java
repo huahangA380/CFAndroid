@@ -1,5 +1,7 @@
+
 package com.crouniversity.main;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,17 +9,22 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.crouniversity.R;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
-
+	private long firstime = 0;
+	private TextView tv_toast = null;
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
@@ -68,9 +75,13 @@ public class MainActivity extends ActionBarActivity implements
 		}
 	}
 
+	@SuppressLint("InlinedApi")
+	@SuppressWarnings("deprecation")
 	public void restoreActionBar() {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+		actionBar.setBackgroundDrawable(getResources().getDrawable(
+				android.R.color.holo_orange_light));
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setTitle(mTitle);
 	}
@@ -129,6 +140,9 @@ public class MainActivity extends ActionBarActivity implements
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
+			TextView tv = (TextView) rootView.findViewById(R.id.section_label);
+			String b = getArguments().toString();
+			tv.setText(b);
 			return rootView;
 		}
 
@@ -140,4 +154,29 @@ public class MainActivity extends ActionBarActivity implements
 		}
 	}
 
+	@SuppressLint("InflateParams")
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {// 重写back键
+		// TODO 自动生成的方法存根
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			long secondtime = System.currentTimeMillis();
+			if (secondtime - firstime > 3000) { // 如果大于3秒 弹出toast提示
+				firstime = System.currentTimeMillis();
+				View toast_view = getLayoutInflater().inflate(
+						R.layout.toast_cutsomeview, null);
+				Toast toast = new Toast(getApplicationContext());
+				toast.setView(toast_view);
+				tv_toast = (TextView) toast_view
+						.findViewById(R.id.tv_toastInfo);
+				tv_toast.setText("再按一次推出应用");
+				toast.setDuration(Toast.LENGTH_SHORT);
+				toast.setGravity(Gravity.CENTER, 0, 0);// 设置toast显示位置
+				toast.show();
+				return true;
+			} else { // 如果小于3秒退出程序
+				MainActivity.this.finish();
+			}
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 }

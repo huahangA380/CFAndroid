@@ -1,4 +1,3 @@
-
 package com.crouniversity.main;
 
 import android.annotation.SuppressLint;
@@ -9,7 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,14 +15,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
 
+@SuppressLint("InflateParams")
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 	private long firstime = 0;
-	private TextView tv_toast = null;
+	private View view;
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
@@ -41,7 +40,7 @@ public class MainActivity extends ActionBarActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		view = getLayoutInflater().inflate(R.layout.toast_cutsomeview, null);
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -108,6 +107,9 @@ public class MainActivity extends ActionBarActivity implements
 		if (id == R.id.action_settings) {
 			return true;
 		}
+		if (id == R.id.action_example) {
+			item.setIcon(R.drawable.ic_drawer);
+		}
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -154,7 +156,6 @@ public class MainActivity extends ActionBarActivity implements
 		}
 	}
 
-	@SuppressLint("InflateParams")
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {// 重写back键
 		// TODO 自动生成的方法存根
@@ -162,16 +163,8 @@ public class MainActivity extends ActionBarActivity implements
 			long secondtime = System.currentTimeMillis();
 			if (secondtime - firstime > 3000) { // 如果大于3秒 弹出toast提示
 				firstime = System.currentTimeMillis();
-				View toast_view = getLayoutInflater().inflate(
-						R.layout.toast_cutsomeview, null);
-				Toast toast = new Toast(getApplicationContext());
-				toast.setView(toast_view);
-				tv_toast = (TextView) toast_view
-						.findViewById(R.id.tv_toastInfo);
-				tv_toast.setText("再按一次推出应用");
-				toast.setDuration(Toast.LENGTH_SHORT);
-				toast.setGravity(Gravity.CENTER, 0, 0);// 设置toast显示位置
-				toast.show();
+				ToastUtil.showOutToast(getApplicationContext(), "再次点击返回键退出",
+						view);
 				return true;
 			} else { // 如果小于3秒退出程序
 				MainActivity.this.finish();

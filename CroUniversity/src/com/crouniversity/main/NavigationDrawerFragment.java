@@ -2,6 +2,7 @@ package com.crouniversity.main;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
 import com.example.crouniversity.R;
 
 /**
@@ -33,7 +34,6 @@ import com.example.crouniversity.R;
  */
 @SuppressWarnings("deprecation")
 public class NavigationDrawerFragment extends Fragment {
-
 	/**
 	 * Remember the position of the selected item.
 	 */
@@ -117,6 +117,7 @@ public class NavigationDrawerFragment extends Fragment {
 						getString(R.string.title_section3),
 						getString(R.string.app_name), }));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+
 		return mDrawerListView;
 	}
 
@@ -280,8 +281,10 @@ public class NavigationDrawerFragment extends Fragment {
 		}
 
 		if (item.getItemId() == R.id.action_example) {
-			Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT)
-					.show();
+
+			item.setIcon(R.drawable.ic_drawer);
+			startActivity(new Intent(getActivity(),
+					com.crouniversity.main.SignInActivity.class));
 			return true;
 		}
 

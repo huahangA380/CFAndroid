@@ -33,7 +33,13 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <activity
             android:name="com.crouniversity.main.MainActivity"
-            android:icon="@drawable/ic_launcher"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.crouniversity.main.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.crouniversity.main.SignUpActivity"
             android:screenOrientation="portrait" />
     </application>
 

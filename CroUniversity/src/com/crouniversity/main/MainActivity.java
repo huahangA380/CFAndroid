@@ -71,6 +71,9 @@ public class MainActivity extends ActionBarActivity implements
 		case 3:
 			mTitle = getString(R.string.title_section3);
 			break;
+		case 4:
+			mTitle = getString(R.string.app_name);
+			break;
 		}
 	}
 

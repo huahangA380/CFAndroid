@@ -18,5 +18,6 @@
     <string name="user_name">用户名</string>
     <string name="signup_second_pwd">请再次输入密码</string>
     <string name="protocol">我已同意服务协议</string>
+    <string name="sign_qq_ip">QQ登录</string>
 
 </resources>

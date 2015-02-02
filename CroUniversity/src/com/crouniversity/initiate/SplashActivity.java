@@ -7,21 +7,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.crouniversity.utils.NetWorkContent;
+import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
 
 public class SplashActivity extends Activity {
 	private WebView web_content;
-	private TextView tv_toast;
 	private final String URL_LOCAL = "file:///android_asset/Splash.html";
 	private final String URL_INTENT = "http://weibo.com";
 	private int currentversioncode;// 当前版本号
@@ -87,7 +83,7 @@ public class SplashActivity extends Activity {
 
 	@SuppressLint("InflateParams")
 	public void startMainActivity() {
-		if (isNetworkConnected()) {
+		if (NetWorkContent.isNetworkConnected(getApplicationContext())) {
 			new Thread() {
 				public void run() {
 					try {
@@ -113,14 +109,11 @@ public class SplashActivity extends Activity {
 				};
 			}.start();
 		} else {
-			View toast_view = getLayoutInflater().inflate(
-					R.layout.toast_cutsomeview, null);
-			Toast toast = new Toast(getApplicationContext());
-			toast.setView(toast_view);
-			tv_toast = (TextView) toast_view.findViewById(R.id.tv_toastInfo);
-			tv_toast.setText("无网络连接");
-			toast.setDuration(Toast.LENGTH_SHORT);
-			toast.show();
+			ToastUtil.showToast(
+					getApplicationContext(),
+					"服务器连接失败，请检查网络或稍后重试",
+					getLayoutInflater().inflate(R.layout.toast_cutsomeview,
+							null));
 			new Thread() {
 				public void run() {
 					try {
@@ -164,20 +157,4 @@ public class SplashActivity extends Activity {
 		}
 	}
 
-	/**
-	 * 判断网络
-	 * 
-	 * @return boolean 是否已联网
-	 */
-	private boolean isNetworkConnected() {
-
-		// TODO 自动生成的方法存根
-		ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-		NetworkInfo info = cm.getActiveNetworkInfo();
-		if (info != null && info.isConnected()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 }

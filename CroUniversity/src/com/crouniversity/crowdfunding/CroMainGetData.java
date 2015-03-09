@@ -1,0 +1,93 @@
+package com.crouniversity.crowdfunding;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.example.crouniversity.R;
+
+public class CroMainGetData {
+	public static List<Map<String, Object>> getData() {
+		// TODO Auto-generated method stub
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 50);
+		map.put("tv_main_completed", "50%");
+		map.put("tv_main_fund", "1000元");
+		map.put("tv_main_remaindays", "30天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 80);
+		map.put("tv_main_completed", "80%");
+		map.put("tv_main_fund", "10000元");
+		map.put("tv_main_remaindays", "10天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		map = new HashMap<String, Object>();
+		map.put("img_cro_main", R.drawable.banner);
+		// map.put("pro_cro_completed", 20);
+		map.put("tv_main_completed", "20%");
+		map.put("tv_main_fund", "2000元");
+		map.put("tv_main_remaindays", "20天");
+		list.add(map);
+		return list;
+	}
+}

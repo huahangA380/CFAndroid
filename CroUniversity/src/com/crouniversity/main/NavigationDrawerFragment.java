@@ -112,10 +112,14 @@ public class NavigationDrawerFragment extends Fragment {
 				.getThemedContext(),
 				android.R.layout.simple_list_item_activated_1,
 				android.R.id.text1, new String[] {
-						getString(R.string.title_section1),
-						getString(R.string.title_section2),
-						getString(R.string.title_section3),
-						getString(R.string.app_name), }));
+						getString(R.string.productcro),
+						getString(R.string.charitypro),
+						getString(R.string.travelpro),
+						getString(R.string.catepro),
+						getString(R.string.studycommunity),
+						getString(R.string.livecommunity),
+						getString(R.string.originalitycommunity),
+						getString(R.string.action_settings) }));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 
 		return mDrawerListView;
@@ -283,8 +287,7 @@ public class NavigationDrawerFragment extends Fragment {
 		if (item.getItemId() == R.id.action_example) {
 
 			item.setIcon(R.drawable.ic_drawer);
-			startActivity(new Intent(getActivity(),
-					com.crouniversity.main.SignInActivity.class));
+			startActivity(new Intent(getActivity(), SignInActivity.class));
 			return true;
 		}
 

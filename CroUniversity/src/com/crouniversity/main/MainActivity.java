@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.crouniversity.crowdfunding.CroMainFragment;
 import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
 
@@ -54,25 +55,82 @@ public class MainActivity extends ActionBarActivity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						PlaceholderFragment.newInstance(position + 1)).commit();
+		switch (position) {
+		case 0:
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, CroMainFragment.newInstance(0))
+					.commit();
+			break;
+
+		case 1:
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, CroMainFragment.newInstance(1))
+					.commit();
+			break;
+		case 2:
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container, PlaceholderFragment.newInstance(2))
+					.commit();
+			break;
+		case 3:
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container, PlaceholderFragment.newInstance(3))
+					.commit();
+			break;
+		case 4:
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container, PlaceholderFragment.newInstance(4))
+					.commit();
+			break;
+		case 5:
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container, PlaceholderFragment.newInstance(5))
+					.commit();
+			break;
+		case 6:
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container, PlaceholderFragment.newInstance(6))
+					.commit();
+			break;
+		case 7:
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container, PlaceholderFragment.newInstance(7))
+					.commit();
+			break;
+		}
 	}
 
 	public void onSectionAttached(int number) {
 		switch (number) {
+		case 0:
+			mTitle = getString(R.string.productcro);
+			break;
 		case 1:
-			mTitle = getString(R.string.title_section1);
+			mTitle = getString(R.string.charitypro);
 			break;
 		case 2:
-			mTitle = getString(R.string.title_section2);
+			mTitle = getString(R.string.travelpro);
 			break;
 		case 3:
-			mTitle = getString(R.string.title_section3);
+			mTitle = getString(R.string.catepro);
 			break;
 		case 4:
-			mTitle = getString(R.string.app_name);
+			mTitle = getString(R.string.studycommunity);
+			break;
+		case 5:
+			mTitle = getString(R.string.livecommunity);
+			break;
+		case 6:
+			mTitle = getString(R.string.originalitycommunity);
+			break;
+		case 7:
+			mTitle = getString(R.string.action_settings);
 			break;
 		}
 	}

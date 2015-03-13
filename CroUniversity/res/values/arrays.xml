@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="item_title">
+        <item>产品众筹</item>
+        <item>公益众筹</item>
+        <item>旅游众筹</item>
+        <item>美食众筹</item>
+        <item>学习社区</item>
+        <item>生活社区</item>
+        <item>创意社区</item>
+        <item>设置</item>
+    </string-array>
+
+</resources>

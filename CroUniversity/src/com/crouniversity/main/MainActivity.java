@@ -37,6 +37,7 @@ public class MainActivity extends ActionBarActivity implements
 	 */
 	private CharSequence mTitle;
 
+	@SuppressLint("InlinedApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,59 +50,50 @@ public class MainActivity extends ActionBarActivity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
+
 	}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
+		CroMainFragment croMainFragment = new CroMainFragment();
+		PlaceholderFragment p = new PlaceholderFragment();
+		MainFragment mainFragment = new MainFragment();
 		switch (position) {
 		case 0:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, CroMainFragment.newInstance(0))
-					.commit();
+					.replace(R.id.container, mainFragment).commit();
 			break;
 
 		case 1:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, CroMainFragment.newInstance(1))
+					.replace(R.id.container, croMainFragment.newInstance(1))
 					.commit();
 			break;
 		case 2:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container, PlaceholderFragment.newInstance(2))
-					.commit();
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, p.newInstance(2)).commit();
 			break;
 		case 3:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container, PlaceholderFragment.newInstance(3))
-					.commit();
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, p.newInstance(3)).commit();
 			break;
 		case 4:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container, PlaceholderFragment.newInstance(4))
-					.commit();
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, p.newInstance(4)).commit();
 			break;
 		case 5:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container, PlaceholderFragment.newInstance(5))
-					.commit();
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, p.newInstance(5)).commit();
 			break;
 		case 6:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container, PlaceholderFragment.newInstance(6))
-					.commit();
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, p.newInstance(6)).commit();
 			break;
 		case 7:
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container, PlaceholderFragment.newInstance(7))
-					.commit();
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, p.newInstance(7)).commit();
 			break;
 		}
 	}
@@ -187,7 +179,7 @@ public class MainActivity extends ActionBarActivity implements
 		/**
 		 * Returns a new instance of this fragment for the given section number.
 		 */
-		public static PlaceholderFragment newInstance(int sectionNumber) {
+		public PlaceholderFragment newInstance(int sectionNumber) {
 			PlaceholderFragment fragment = new PlaceholderFragment();
 			Bundle args = new Bundle();
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -201,7 +193,7 @@ public class MainActivity extends ActionBarActivity implements
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
+			View rootView = inflater.inflate(R.layout.fragment_test, container,
 					false);
 			TextView tv = (TextView) rootView.findViewById(R.id.section_label);
 			String b = getArguments().toString();

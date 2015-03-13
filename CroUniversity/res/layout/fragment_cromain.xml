@@ -1,16 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
     <ListView
-        android:id="@id/android:list"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
         android:background="#fff"
         android:choiceMode="singleChoice"
-        android:divider="#c3c3c3"
-        android:dividerHeight="0.5dp" />
+        android:divider="#FF0000"
+        android:dividerHeight="10dp" />
 
-</LinearLayout>
+</RelativeLayout>

@@ -112,11 +112,11 @@ public class NavigationDrawerFragment extends Fragment {
 					}
 				});
 		String[] itemTitle = getResources().getStringArray(R.array.item_title);
-		int[] itemIconRes = { R.drawable.ic_drawer_home,
-				R.drawable.ic_drawer_explore, R.drawable.ic_drawer_follow,
-				R.drawable.ic_drawer_collect, R.drawable.ic_drawer_draft,
-				R.drawable.ic_drawer_search, R.drawable.ic_drawer_question,
-				R.drawable.ic_drawer_setting };
+		int[] itemIconRes = { R.drawable.ic_drawer_main,
+				R.drawable.ic_drawer_home, R.drawable.ic_drawer_explore,
+				R.drawable.ic_drawer_follow, R.drawable.ic_drawer_collect,
+				R.drawable.ic_drawer_draft, R.drawable.ic_drawer_search,
+				R.drawable.ic_drawer_question, R.drawable.ic_drawer_setting };
 
 		for (int i = 0; i < itemTitle.length; i++) {
 			DrawerListItem item = new DrawerListItem(getResources()

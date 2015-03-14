@@ -46,7 +46,7 @@ public class CroMainAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		CroMainViewHolder viewHoder = new CroMainViewHolder();
 		if (convertView == null) {
-			convertView = mLayoutInflater.inflate(R.layout.layout_crowdfunding,
+			convertView = mLayoutInflater.inflate(R.layout.layout_crowdfunding_item,
 					parent, false);
 			viewHoder.img_cro_main = (ImageView) convertView
 					.findViewById(R.id.img_cro_main);

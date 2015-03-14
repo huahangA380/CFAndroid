@@ -1,14 +1,17 @@
 package com.crouniversity.main;
 
-import com.example.crouniversity.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.crouniversity.crowdfunding.CroMainAdapter;
+import com.example.crouniversity.R;
 
 public class MainFragmentCro extends Fragment {
 	private final static String SELECTUNM = "selectum";
@@ -31,11 +34,25 @@ public class MainFragmentCro extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		View view = inflater.inflate(R.layout.fragment_main_cro, container,
-				false);
-		TextView tv = (TextView) view.findViewById(R.id.tvsss);
-		tv.setText("test");
-		return view;
+		View v = inflater.inflate(R.layout.fragment_cromain, container, false);
+
+		CroMainAdapter adapter = new CroMainAdapter(getActivity());
+		ListView lv = (ListView) v.findViewById(R.id.lv);
+
+		lv.setAdapter(adapter);
+
+		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getActivity(), position + " ",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+
+		return v;
 	}
 
 	@Override
@@ -51,4 +68,5 @@ public class MainFragmentCro extends Fragment {
 		// TODO Auto-generated method stub
 		super.onPause();
 	}
+
 }

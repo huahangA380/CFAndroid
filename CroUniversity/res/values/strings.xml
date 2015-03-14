@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">CroUniversity</string>
+    <string name="homepage">首页</string>
     <string name="productcro">产品众筹</string>
     <string name="charitypro">公益众筹</string>
     <string name="travelpro">旅游众筹</string>

@@ -2,6 +2,7 @@ package com.crouniversity.main;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import com.example.crouniversity.R;
 
 public class MainFragment extends Fragment {
+	private static final String ARG_SECTION_NUMBER = "section_number";
 	private MainFragmentCro fragmentCro;
 	private MainFragmentSns fragmentSns;
 	private ViewPager viewPager;
@@ -39,6 +41,9 @@ public class MainFragment extends Fragment {
 		pagerTabStrip.setTabIndicatorColor(getResources().getColor(
 				android.R.color.holo_blue_dark));// 下划线颜色
 		pagerTabStrip.setBackgroundResource(android.R.color.holo_orange_dark);// 背景颜色
+		pagerTabStrip.setTextColor(getResources().getColor(
+				R.color.abc_search_url_text_normal));
+		pagerTabStrip.setTextSize(2, 18);
 		fragmentList = new ArrayList<Fragment>();
 		fragmentCro = new MainFragmentCro();
 		fragmentSns = new MainFragmentSns();
@@ -50,6 +55,23 @@ public class MainFragment extends Fragment {
 		viewPager.setAdapter(new ViewPagerActivity(getFragmentManager()));
 		viewPager.setOffscreenPageLimit(2);// 预加载2页面
 		return view;
+	}
+
+	public MainFragment newInstance(int sectionnum) {
+		// TODO Auto-generated method stub
+		MainFragment fragment = new MainFragment();
+		Bundle args = new Bundle();
+		args.putInt(ARG_SECTION_NUMBER, sectionnum);
+		fragment.setArguments(args);
+		return fragment;
+	}
+
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-g enerated method stub
+		super.onAttach(activity);
+		((MainActivity) activity).onSectionAttached(getArguments().getInt(
+				ARG_SECTION_NUMBER));
 	}
 
 	public class ViewPagerActivity extends FragmentPagerAdapter {

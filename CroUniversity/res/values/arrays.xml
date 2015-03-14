@@ -2,6 +2,7 @@
 <resources>
 
     <string-array name="item_title">
+        <item>首页</item>
         <item>产品众筹</item>
         <item>公益众筹</item>
         <item>旅游众筹</item>

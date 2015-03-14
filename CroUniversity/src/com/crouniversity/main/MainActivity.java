@@ -16,7 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.crouniversity.crowdfunding.CroMainFragment;
+import com.crouniversity.crowdfunding.CroProductFragment;
+import com.crouniversity.sns.SnsStudyMainFragment;
 import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
 
@@ -57,18 +58,20 @@ public class MainActivity extends ActionBarActivity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
-		CroMainFragment croMainFragment = new CroMainFragment();
+		CroProductFragment croProductFragment = new CroProductFragment();
 		PlaceholderFragment p = new PlaceholderFragment();
 		MainFragment mainFragment = new MainFragment();
+		SnsStudyMainFragment snsStudyMainFragment = new SnsStudyMainFragment();
 		switch (position) {
 		case 0:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, mainFragment).commit();
+					.replace(R.id.container, mainFragment.newInstance(0))
+					.commit();
 			break;
 
 		case 1:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, croMainFragment.newInstance(1))
+					.replace(R.id.container, croProductFragment.newInstance(1))
 					.commit();
 			break;
 		case 2:
@@ -84,8 +87,10 @@ public class MainActivity extends ActionBarActivity implements
 					.replace(R.id.container, p.newInstance(4)).commit();
 			break;
 		case 5:
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, p.newInstance(5)).commit();
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container,
+							snsStudyMainFragment.newInstance(5)).commit();
 			break;
 		case 6:
 			fragmentManager.beginTransaction()
@@ -95,35 +100,43 @@ public class MainActivity extends ActionBarActivity implements
 			fragmentManager.beginTransaction()
 					.replace(R.id.container, p.newInstance(7)).commit();
 			break;
+		case 8:
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, p.newInstance(8)).commit();
+			break;
 		}
 	}
 
 	public void onSectionAttached(int number) {
 		switch (number) {
 		case 0:
-			mTitle = getString(R.string.productcro);
+			mTitle = getString(R.string.homepage);
 			break;
 		case 1:
-			mTitle = getString(R.string.charitypro);
+			mTitle = getString(R.string.productcro);
 			break;
 		case 2:
-			mTitle = getString(R.string.travelpro);
+			mTitle = getString(R.string.charitypro);
 			break;
 		case 3:
-			mTitle = getString(R.string.catepro);
+			mTitle = getString(R.string.travelpro);
 			break;
 		case 4:
-			mTitle = getString(R.string.studycommunity);
+			mTitle = getString(R.string.catepro);
 			break;
 		case 5:
-			mTitle = getString(R.string.livecommunity);
+			mTitle = getString(R.string.studycommunity);
 			break;
 		case 6:
-			mTitle = getString(R.string.originalitycommunity);
+			mTitle = getString(R.string.livecommunity);
 			break;
 		case 7:
+			mTitle = getString(R.string.originalitycommunity);
+			break;
+		case 8:
 			mTitle = getString(R.string.action_settings);
 			break;
+
 		}
 	}
 
@@ -132,7 +145,8 @@ public class MainActivity extends ActionBarActivity implements
 	public void restoreActionBar() {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setBackgroundDrawable(getResources().getDrawable(
+
+		actionBar.setIcon(getResources().getDrawable(
 				android.R.color.holo_orange_light));
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setTitle(mTitle);

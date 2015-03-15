@@ -52,7 +52,7 @@ public class SnsStudyMainAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		viewHolder = new SnsStudyMainViewHolder();
 		if (convertView == null) {
-			convertView = layoutInflater.inflate(R.layout.layout_studysns_item,
+			convertView = layoutInflater.inflate(R.layout.layout_studysns_main_item,
 					parent, false);
 			viewHolder.tv_studysns_title = (TextView) convertView
 					.findViewById(R.id.tv_studysns_title);

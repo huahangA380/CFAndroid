@@ -28,5 +28,6 @@
     <string name="fund">目标资金</string>
     <string name="remaindays">剩余天数</string>
     <string name="action_clicked">Action clicked</string>
+    <string name="replysign">:@</string>
 
 </resources>

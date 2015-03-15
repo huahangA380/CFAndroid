@@ -8,4 +8,7 @@
 
     <drawable name="activated_background_color">#00a7ff</drawable>
 
+    <color name="bg_maopao_comment">#e6e6e6</color>
+    <color name="font_black_comment">#666666</color>
+
 </resources>

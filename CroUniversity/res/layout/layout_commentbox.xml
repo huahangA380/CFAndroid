@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layou_commentbox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/message_edit_layout"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/btn_emoji"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:background="@drawable/ic_enter_emoji_normal" />
+
+    <Button
+        android:id="@+id/btn_pic"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:background="@drawable/message_button_add" />
+
+    <EditText
+        android:id="@+id/edt_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/edit"
+        android:inputType="none" />
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="50dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/btn_sends"
+        android:gravity="center"
+        android:text="@string/send"
+        android:textColor="@color/font_gray"
+        android:textSize="15sp" />
+
+</LinearLayout>

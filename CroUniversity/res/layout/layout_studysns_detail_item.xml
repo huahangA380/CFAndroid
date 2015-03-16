@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/MaopaoItem"
+        android:id="@+id/SnsItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -14,12 +14,26 @@
         android:paddingRight="12dp"
         android:paddingTop="12dp" >
 
-        <ImageView
-            android:id="@+id/icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/banner" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/banner" />
+
+            <TextView
+                android:id="@+id/layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20楼"
+                android:textColor="@color/font_gray"
+                android:textSize="12sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,7 +76,7 @@
                 android:layout_marginTop="8dp"
                 android:lineSpacingExtra="1dp"
                 android:lineSpacingMultiplier="1.1"
-                android:text="陈可辛果然是香港最成功的导演，从《投名状》、《十月围城》、《武侠》"
+                android:text="Thomas Bergersen 全名 Thomas Jacob Bergersen，为著名的预告片制作团队“Two Steps From Hell”的创始人之 一。2011年他与伙伴 Nick Phoenix 一起制作发行了首张个人创作专辑《Illusions》"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/font_black_content"
                 android:textIsSelectable="true"
@@ -167,20 +181,20 @@
                     android:textColor="@color/font_gray" />
 
                 <TextView
-                    android:id="@+id/maopaoDelete"
+                    android:id="@+id/SnsDelete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="删除"
                     android:textColor="@color/font_gray" />
 
                 <CheckBox
-                    android:id="@+id/likeBtn"
+                    android:id="@+id/goodck"
                     android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:button="@drawable/checkbox_good" />
 
                 <CheckBox
-                    android:id="@+id/commentBtn"
+                    android:id="@+id/commentck"
                     android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:button="@drawable/checkbox_comment" />

@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.crouniversity.crowdfunding.CroProductFragment;
 import com.crouniversity.sns.SnsStudyMainFragment;
@@ -207,11 +206,11 @@ public class MainActivity extends ActionBarActivity implements
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_test, container,
-					false);
-			TextView tv = (TextView) rootView.findViewById(R.id.section_label);
-			String b = getArguments().toString();
-			tv.setText(b);
+			View rootView = inflater.inflate(
+					R.layout.layout_studysns_detail_item, container, false);
+			//TextView tv = (TextView) rootView.findViewById(R.id.section_label);
+			//String b = getArguments().toString();
+			//tv.setText(b);
 			return rootView;
 		}
 

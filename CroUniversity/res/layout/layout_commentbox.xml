@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layou_commentbox"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="30dp"
     android:background="@drawable/message_edit_layout"
     android:gravity="center_vertical"
     android:orientation="horizontal" >
@@ -33,7 +33,8 @@
         android:layout_marginStart="5dp"
         android:layout_weight="1"
         android:background="@drawable/edit"
-        android:inputType="none" />
+        android:inputType="none" 
+        android:singleLine="false"/>
 
     <Button
         android:id="@+id/btn_send"

@@ -2,6 +2,7 @@ package com.crouniversity.main;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,8 +13,11 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import com.crouniversity.crowdfunding.CroProductFragment;
 import com.crouniversity.sns.SnsStudyMainFragment;
@@ -46,10 +50,22 @@ public class MainActivity extends ActionBarActivity implements
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
-
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
+		// final FloatingActionButton fab = (FloatingActionButton)
+		// findViewById(R.id.fab);
+		// fab.setColor(getResources().getColor(android.R.color.holo_blue_light));//
+		// 设置FloatButton背景色
+		//
+		// fab.setOnClickListener(new View.OnClickListener() {
+		// @Override
+		// public void onClick(View v) {
+		// Toast.makeText(v.getContext(), R.string.action_clicked,
+		// Toast.LENGTH_SHORT).show();
+		// fab.setImageResource(R.drawable.ic_launcher);// 设置FloatButtonImage
+		// }
+		// });
 
 	}
 
@@ -206,11 +222,15 @@ public class MainActivity extends ActionBarActivity implements
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(
-					R.layout.layout_studysns_detail_item, container, false);
-			//TextView tv = (TextView) rootView.findViewById(R.id.section_label);
-			//String b = getArguments().toString();
-			//tv.setText(b);
+			View rootView = inflater.inflate(R.layout.fragment_studysns_detail,
+					container, false);
+			// TextView tv = (TextView)
+			// rootView.findViewById(R.id.section_label);
+			// String b = getArguments().toString();
+			// tv.setText(b);
+			// final EditText input = (EditText) rootView
+			// .findViewById(R.id.edt_input);
+
 			return rootView;
 		}
 
@@ -237,5 +257,47 @@ public class MainActivity extends ActionBarActivity implements
 			}
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		// TODO Auto-generated method stub
+		if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+			View v = getCurrentFocus();
+			if (isShouldHideInput(v, ev)) {
+
+				InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				if (imm != null) {
+					imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+				}
+			}
+			return super.dispatchTouchEvent(ev);
+		}
+		// 必不可少，否则所有的组件都不会有TouchEvent了
+		if (getWindow().superDispatchTouchEvent(ev)) {
+			return true;
+		}
+		return onTouchEvent(ev);
+
+	}
+
+	public boolean isShouldHideInput(View v, MotionEvent event) {
+		if (v != null && (v instanceof EditText)) {
+			int[] leftTop = { 0, 0 };
+			// 获取输入框当前的location位置
+			v.getLocationInWindow(leftTop);
+			int left = leftTop[0];
+			int top = leftTop[1];
+			int bottom = top + v.getHeight();
+			int right = left + v.getWidth();
+			if (event.getX() > left && event.getX() < right
+					&& event.getY() > top && event.getY() < bottom) {
+				// 点击的是输入框区域，保留点击EditText的事件
+				return false;
+			} else {
+				return true;
+			}
+		}
+		return false;
 	}
 }

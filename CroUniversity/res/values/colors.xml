@@ -5,10 +5,4 @@
     <color name="font_black_content">#222222</color>
     <color name="font_gray">#999999</color>
     <color name="white">#ffffff</color>
-
-    <drawable name="activated_background_color">#00a7ff</drawable>
-
-    <color name="bg_maopao_comment">#e6e6e6</color>
-    <color name="font_black_comment">#666666</color>
-
-</resources>
+</resources>

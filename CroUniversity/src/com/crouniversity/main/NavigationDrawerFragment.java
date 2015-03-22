@@ -1,5 +1,8 @@
 package com.crouniversity.main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +23,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.crouniversity.R;
@@ -62,6 +64,7 @@ public class NavigationDrawerFragment extends Fragment {
 	private int mCurrentSelectedPosition = 0;
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
+	private List<DrawerListItem> mData = new ArrayList<DrawerListItem>();
 
 	public NavigationDrawerFragment() {
 	}
@@ -108,18 +111,23 @@ public class NavigationDrawerFragment extends Fragment {
 						selectItem(position);
 					}
 				});
-		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar()
-				.getThemedContext(),
-				android.R.layout.simple_list_item_activated_1,
-				android.R.id.text1, new String[] {
-						getString(R.string.productcro),
-						getString(R.string.charitypro),
-						getString(R.string.travelpro),
-						getString(R.string.catepro),
-						getString(R.string.studycommunity),
-						getString(R.string.livecommunity),
-						getString(R.string.originalitycommunity),
-						getString(R.string.action_settings) }));
+		String[] itemTitle = getResources().getStringArray(R.array.item_title);
+		int[] itemIconRes = { R.drawable.ic_drawer_main,
+				R.drawable.ic_drawer_home, R.drawable.ic_drawer_explore,
+				R.drawable.ic_drawer_follow, R.drawable.ic_drawer_collect,
+				R.drawable.ic_drawer_draft, R.drawable.ic_drawer_search,
+				R.drawable.ic_drawer_question, R.drawable.ic_drawer_setting };
+
+		for (int i = 0; i < itemTitle.length; i++) {
+			DrawerListItem item = new DrawerListItem(getResources()
+					.getDrawable(itemIconRes[i]), itemTitle[i]);
+			mData.add(item);
+
+		}
+		selectItem(mCurrentSelectedPosition);
+		DrawerListAdapter adapter = new DrawerListAdapter(this.getActivity(),
+				mData);
+		mDrawerListView.setAdapter(adapter);
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 
 		return mDrawerListView;
@@ -287,7 +295,8 @@ public class NavigationDrawerFragment extends Fragment {
 		if (item.getItemId() == R.id.action_example) {
 
 			item.setIcon(R.drawable.ic_drawer);
-			startActivity(new Intent(getActivity(), SignInActivity.class));
+			startActivity(new Intent(getActivity(),
+					com.crouniversity.sign.SignInActivity.class));
 			return true;
 		}
 

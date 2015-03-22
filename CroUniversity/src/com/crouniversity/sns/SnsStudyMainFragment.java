@@ -1,13 +1,13 @@
 package com.crouniversity.sns;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -48,8 +48,7 @@ public class SnsStudyMainFragment extends Fragment {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getActivity(), position + " ",
-						Toast.LENGTH_SHORT).show();
+				startActivity(new Intent(getActivity(), SnsDetailActivity.class));
 			}
 		});
 		return view;

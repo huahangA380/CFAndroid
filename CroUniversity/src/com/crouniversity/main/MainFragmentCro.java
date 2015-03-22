@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.crouniversity.crowdfunding.CroMainAdapter;
+import com.crouniversity.cro.CroMainAdapter;
 import com.example.crouniversity.R;
 
 public class MainFragmentCro extends Fragment {

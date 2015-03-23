@@ -18,8 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.crouniversity.cro.CroProductFragment;
+import com.crouniversity.fab.FloatingActionButton;
 import com.crouniversity.sns.SnsStudyMainFragment;
 import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
@@ -53,19 +55,18 @@ public class MainActivity extends ActionBarActivity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
-		// final FloatingActionButton fab = (FloatingActionButton)
-		// findViewById(R.id.fab);
-		// fab.setColor(getResources().getColor(android.R.color.holo_blue_light));
-		// //设置FloatButton背景色
-		//
-		// fab.setOnClickListener(new View.OnClickListener() {
-		// @Override
-		// public void onClick(View v) {
-		// Toast.makeText(v.getContext(), R.string.action_clicked,
-		// Toast.LENGTH_SHORT).show();
-		// fab.setImageResource(R.drawable.ic_launcher);// 设置FloatButtonImage
-		// }
-		// });
+		final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+		fab.setColor(getResources().getColor(android.R.color.holo_blue_light));
+		// 设置FloatButton背景色
+
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(v.getContext(), R.string.action_clicked,
+						Toast.LENGTH_SHORT).show();
+				fab.setImageResource(R.drawable.ic_launcher);// 设置FloatButtonImage
+			}
+		});
 
 	}
 

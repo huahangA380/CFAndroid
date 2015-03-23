@@ -1,7 +1,6 @@
 package com.crouniversity.sign;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,10 +11,11 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 
+import com.crouniversity.main.BaseActivity;
 import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
 
-public class SignUpActivity extends Activity {
+public class SignUpActivity extends BaseActivity {
 	private EditText edt_user_name;
 	private EditText edt_email;
 	private EditText edt_f_pwd;

@@ -29,8 +29,7 @@
         </activity>
         <activity
             android:name="com.crouniversity.initiate.GuideActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.crouniversity.main.MainActivity"
             android:launchMode="singleTask"
@@ -46,6 +45,15 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.crouniversity.sns.SnsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.crouniversity.userinfo.UserInfoMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.crouniversity.setting.AccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.crouniversity.setting.ResetPwdActivity"
             android:screenOrientation="portrait" />
     </application>
 

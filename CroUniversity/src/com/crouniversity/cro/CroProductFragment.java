@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.crouniversity.fab.FloatingActionButton;
+import com.crouniversity.fab.ShowHideOnScroll;
 import com.crouniversity.main.MainActivity;
 import com.example.crouniversity.R;
 
@@ -37,12 +39,24 @@ public class CroProductFragment extends Fragment {
 		// TODO Auto-generated method stub
 
 		View v = inflater.inflate(R.layout.fragment_cromain, container, false);
+		final FloatingActionButton fab = (FloatingActionButton) v
+				.findViewById(R.id.fab);
+		fab.setColor(getResources().getColor(android.R.color.holo_blue_light));
+		// 设置FloatButton背景色
 
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(),com.crouniversity.userinfo.UserInfoMainActivity.class));
+				fab.setImageResource(R.drawable.ic_launcher);// 设置FloatButtonImage
+				
+			}
+		});
 		CroMainAdapter adapter = new CroMainAdapter(getActivity());
 		ListView lv = (ListView) v.findViewById(R.id.lv);
 
 		lv.setAdapter(adapter);
-
+		lv.setOnTouchListener(new ShowHideOnScroll(fab));// 滑动lvFloatingButton消失
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override

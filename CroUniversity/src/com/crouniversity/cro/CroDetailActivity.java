@@ -10,9 +10,6 @@ import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +17,10 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
+import com.crouniversity.main.BaseActivity;
 import com.example.crouniversity.R;
 
-public class CroDetailActivity extends ActionBarActivity implements
+public class CroDetailActivity extends BaseActivity implements
 		OnPageChangeListener {
 	/**
 	 * ViewPager
@@ -55,10 +53,6 @@ public class CroDetailActivity extends ActionBarActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crowdfunding_detail);
-
-		ActionBar actionBar = getSupportActionBar();
-
-		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup);
 		viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -117,17 +111,6 @@ public class CroDetailActivity extends ActionBarActivity implements
 			}
 		}
 		return super.onTouchEvent(event);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			finish();
-			break;
-		}
-
-		return super.onOptionsItemSelected(item);
 	}
 
 	/**
@@ -191,42 +174,6 @@ public class CroDetailActivity extends ActionBarActivity implements
 		stopTask();
 	}
 
-	/**
-	 * 
-	 * @author xiaanming
-	 *
-	 */
-	public class MyAdapter extends PagerAdapter {
-
-		@Override
-		public int getCount() {
-			return Integer.MAX_VALUE;
-		}
-
-		@Override
-		public boolean isViewFromObject(View arg0, Object arg1) {
-			return arg0 == arg1;
-		}
-
-		@Override
-		public void destroyItem(View container, int position, Object object) {
-			((ViewPager) container).removeView(mImageViews[position
-					% mImageViews.length]);
-
-		}
-
-		/**
-		 * 载入图片进去，用当前的position 除以 图片数组长度取余数是关键
-		 */
-		@Override
-		public Object instantiateItem(View container, int position) {
-			((ViewPager) container).addView(mImageViews[position
-					% mImageViews.length], 0);
-			return mImageViews[position % mImageViews.length];
-		}
-
-	}
-
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
 
@@ -264,6 +211,37 @@ public class CroDetailActivity extends ActionBarActivity implements
 				tips[i].setBackgroundResource(R.drawable.page_indicator_unfocused);
 			}
 		}
+	}
+
+	public class MyAdapter extends PagerAdapter {
+
+		@Override
+		public int getCount() {
+			return Integer.MAX_VALUE;
+		}
+
+		@Override
+		public boolean isViewFromObject(View arg0, Object arg1) {
+			return arg0 == arg1;
+		}
+
+		@Override
+		public void destroyItem(View container, int position, Object object) {
+			((ViewPager) container).removeView(mImageViews[position
+					% mImageViews.length]);
+
+		}
+
+		/**
+		 * 载入图片进去，用当前的position 除以 图片数组长度取余数是关键
+		 */
+		@Override
+		public Object instantiateItem(View container, int position) {
+			((ViewPager) container).addView(mImageViews[position
+					% mImageViews.length], 0);
+			return mImageViews[position % mImageViews.length];
+		}
+
 	}
 
 }

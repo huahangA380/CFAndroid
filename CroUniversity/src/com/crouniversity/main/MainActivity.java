@@ -147,7 +147,7 @@ public class MainActivity extends ActionBarActivity implements
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
-		actionBar.setIcon(getResources().getDrawable(
+		actionBar.setBackgroundDrawable(getResources().getDrawable(
 				android.R.color.holo_orange_light));
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setTitle(mTitle);

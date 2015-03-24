@@ -18,7 +18,7 @@ public class AccountActivity extends BaseActivity {
 		setContentView(R.layout.activity_setting_account);
 		ActionBar actionbar = getSupportActionBar();
 		actionbar.setTitle("’À∫≈…Ë÷√");
-		
+
 		TextView tv_resetpwd = (TextView) findViewById(R.id.tv_resetpwd);
 		tv_resetpwd.setOnClickListener(new OnClickListener() {
 
@@ -31,5 +31,4 @@ public class AccountActivity extends BaseActivity {
 		});
 	}
 
-	
 }

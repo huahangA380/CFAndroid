@@ -69,4 +69,10 @@ public class MainFragmentCro extends Fragment {
 		super.onPause();
 	}
 
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
+	}
 }

@@ -44,19 +44,27 @@ public class CroProductFragment extends Fragment {
 		fab.setColor(getResources().getColor(android.R.color.holo_blue_light));
 		// 设置FloatButton背景色
 
+		// NOTE invoke this method after setting new values!
+		fab.initBackground();
+		// NOTE standard method of ImageView
+		fab.setImageResource(R.drawable.ic_launcher);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),com.crouniversity.userinfo.UserInfoMainActivity.class));
-				fab.setImageResource(R.drawable.ic_launcher);// 设置FloatButtonImage
-				
+				startActivity(new Intent(getActivity(),
+						com.crouniversity.userinfo.UserInfoMainActivity.class));
+				// fab.setImageResource(R.drawable.ic_launcher);//
+				// 设置FloatButtonImage
+
 			}
 		});
 		CroMainAdapter adapter = new CroMainAdapter(getActivity());
 		ListView lv = (ListView) v.findViewById(R.id.lv);
 
 		lv.setAdapter(adapter);
-		lv.setOnTouchListener(new ShowHideOnScroll(fab));// 滑动lvFloatingButton消失
+		lv.setOnTouchListener(new ShowHideOnScroll(fab,
+				R.anim.floating_action_button_show,
+				R.anim.floating_action_button_hide));// 滑动lvFloatingButton消失
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override

@@ -17,7 +17,9 @@ public class BaseActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-	
+		actionBar.setBackgroundDrawable(getResources().getDrawable(
+				android.R.color.holo_orange_light));
+		actionBar.setDisplayShowTitleEnabled(true);
 	}
 
 	@Override

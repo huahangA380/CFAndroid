@@ -1,12 +1,16 @@
 package com.crouniversity.main;
 
+import com.example.crouniversity.R;
+
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -14,11 +18,17 @@ public class BaseActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
+		// actionBar.setBackgroundDrawable(getResources().getDrawable(
+		// android.R.color.holo_orange_light));
+		actionBar.setBackgroundDrawable(new ColorDrawable(
+				android.R.color.transparent));
+		// 设置半透明的底色
 		actionBar.setBackgroundDrawable(getResources().getDrawable(
-				android.R.color.holo_orange_light));
+				R.drawable.sigin_button));
 		actionBar.setDisplayShowTitleEnabled(true);
 	}
 

@@ -2,6 +2,7 @@ package com.crouniversity.main;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 import com.crouniversity.cro.CroProductFragment;
 import com.crouniversity.setting.MainSettingFragment;
@@ -41,6 +43,7 @@ public class MainActivity extends ActionBarActivity implements
 	@SuppressLint("InlinedApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		view = getLayoutInflater().inflate(R.layout.toast_cutsomeview, null);
@@ -146,9 +149,13 @@ public class MainActivity extends ActionBarActivity implements
 	public void restoreActionBar() {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-
+		actionBar.setBackgroundDrawable(new ColorDrawable(
+				android.R.color.transparent));
+		// 设置半透明的底色
 		actionBar.setBackgroundDrawable(getResources().getDrawable(
-				android.R.color.holo_orange_light));
+				R.drawable.sigin_button));
+		// actionBar.setBackgroundDrawable(getResources().getDrawable(
+		// android.R.color.holo_orange_light));
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setTitle(mTitle);
 	}

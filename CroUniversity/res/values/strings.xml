@@ -29,5 +29,8 @@
     <string name="remaindays">剩余天数</string>
     <string name="action_clicked">Action clicked</string>
     <string name="send">发送</string>
+    <string name="commit">确定</string>
+    <string name="title">标题</string>
+    <string name="content">内容</string>
 
 </resources>

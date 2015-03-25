@@ -4,12 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
+    <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/banner"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:background="#CCCCCCCC"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="120dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="100dp"
+            android:gravity="bottom"
+            android:text="用户名" />
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/body"
@@ -20,23 +32,27 @@
         <LinearLayout
             android:id="@+id/l1"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="70dp"
             android:background="@color/white"
             android:orientation="horizontal" >
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:layout_weight="5"
                 android:gravity="center|start"
-                android:text="用户名" />
+                android:padding="5dp"
+                android:text="邮箱"
+                android:textSize="@dimen/font_setting_size" />
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:layout_weight="5"
                 android:gravity="center|end"
+                android:padding="5dp"
                 android:text="注册时间" />
         </LinearLayout>
 

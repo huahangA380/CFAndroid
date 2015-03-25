@@ -14,7 +14,7 @@ import com.crouniversity.cro.CroMainAdapter;
 import com.example.crouniversity.R;
 
 public class MainFragmentCro extends Fragment {
-	private final static String SELECTUNM = "selectum";
+	private final static String SELECTNUM = "selectnum";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MainFragmentCro extends Fragment {
 	public MainFragmentCro newInstance(int selectnum) {
 		MainFragmentCro fragment = new MainFragmentCro();
 		Bundle bundle = new Bundle();
-		bundle.putInt(SELECTUNM, selectnum);
+		bundle.putInt(SELECTNUM, selectnum);
 		fragment.setArguments(bundle);
 		return fragment;
 	}
@@ -60,7 +60,7 @@ public class MainFragmentCro extends Fragment {
 		// TODO Auto-generated method stub
 		super.onAttach(activity);
 		((MainActivity) activity).onSectionAttached(getArguments().getInt(
-				SELECTUNM));
+				SELECTNUM));
 	}
 
 	@Override

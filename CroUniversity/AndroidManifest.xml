@@ -55,6 +55,12 @@
         <activity
             android:name="com.crouniversity.setting.ResetPwdActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.crouniversity.setting.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.crouniversity.setting.FeedBackActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

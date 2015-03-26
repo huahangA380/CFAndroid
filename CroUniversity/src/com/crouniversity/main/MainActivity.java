@@ -19,6 +19,7 @@ import android.view.Window;
 
 import com.crouniversity.cro.CroProductFragment;
 import com.crouniversity.setting.MainSettingFragment;
+import com.crouniversity.sns.SnsLiveMainFragment;
 import com.crouniversity.sns.SnsStudyMainFragment;
 import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
@@ -65,6 +66,7 @@ public class MainActivity extends ActionBarActivity implements
 		MainFragment mainFragment = new MainFragment();
 		SnsStudyMainFragment snsStudyMainFragment = new SnsStudyMainFragment();
 		MainSettingFragment mainSettingFragment = new MainSettingFragment();
+		SnsLiveMainFragment snsLivewFragment = new SnsLiveMainFragment();
 		switch (position) {
 		case 0:
 			fragmentManager.beginTransaction()
@@ -97,7 +99,8 @@ public class MainActivity extends ActionBarActivity implements
 			break;
 		case 6:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, p.newInstance(6)).commit();
+					.replace(R.id.container, snsLivewFragment.newInstance(6))
+					.commit();
 			break;
 		case 7:
 			fragmentManager.beginTransaction()

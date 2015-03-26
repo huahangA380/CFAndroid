@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.crouniversity.fab.FloatingActionButton;
-import com.crouniversity.fab.ShowHideOnScroll;
 import com.crouniversity.main.MainActivity;
 import com.example.crouniversity.R;
 
@@ -49,7 +48,6 @@ public class CroProductFragment extends Fragment {
 		// NOTE standard method of ImageView
 		fab.setImageResource(R.drawable.ic_launcher);
 		fab.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(getActivity(),
 						com.crouniversity.userinfo.UserInfoMainActivity.class));
@@ -62,9 +60,7 @@ public class CroProductFragment extends Fragment {
 		ListView lv = (ListView) v.findViewById(R.id.lv);
 
 		lv.setAdapter(adapter);
-		lv.setOnTouchListener(new ShowHideOnScroll(fab,
-				R.anim.floating_action_button_show,
-				R.anim.floating_action_button_hide));// ª¨∂ØlvFloatingButtonœ˚ ß
+
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
@@ -91,64 +87,5 @@ public class CroProductFragment extends Fragment {
 		// TODO Auto-generated method stub
 		super.onPause();
 	}
-
-	// class CroMainAdapter extends BaseAdapter {
-	// private LayoutInflater mLayoutInflater;
-	//
-	// public CroMainAdapter(Context context) {
-	// // TODO Auto-generated constructor stub
-	// this.mLayoutInflater = LayoutInflater.from(context);
-	// }
-	//
-	// @Override
-	// public int getCount() {
-	// // TODO Auto-generated method stub
-	// return data.size();
-	// }
-	//
-	// @Override
-	// public Object getItem(int position) {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
-	//
-	// @Override
-	// public long getItemId(int position) {
-	// // TODO Auto-generated method stub
-	// return 0;
-	// }
-	//
-	// @Override
-	// public View getView(int position, View convertView, ViewGroup parent) {
-	// // TODO Auto-generated method stub
-	// CroMainItem item = new CroMainItem();
-	// if (convertView == null) {
-	// convertView = mLayoutInflater.inflate(
-	// R.layout.layout_crowdfunding, parent, false);
-	// item.img_cro_main = (ImageView) convertView
-	// .findViewById(R.id.img_cro_main);
-	// item.tv_complete = (TextView) convertView
-	// .findViewById(R.id.tv_main_completed);
-	// item.tv_fund = (TextView) convertView
-	// .findViewById(R.id.tv_main_fund);
-	// item.tv_main_remaindays = (TextView) convertView
-	// .findViewById(R.id.tv_main_remaindays);
-	// convertView.setTag(item);
-	// } else {
-	// item = (CroMainItem) convertView.getTag();
-	// }
-	// item.img_cro_main.setBackgroundResource((Integer) data
-	// .get(position).get("img_cro_main"));
-	// // item.pro.setProgress((Integer) data.get(position).get(
-	// // "pro_cro_completed"));
-	// item.tv_complete.setText((CharSequence) data.get(position).get(
-	// "tv_main_completed"));
-	// item.tv_fund.setText((CharSequence) data.get(position).get(
-	// "tv_main_fund"));
-	// item.tv_main_remaindays.setText((CharSequence) data.get(position)
-	// .get("tv_main_remaindays"));
-	// return convertView;
-	// }
-	// }
 
 }

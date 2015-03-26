@@ -16,7 +16,8 @@
             android:layout_gravity="center"
             android:background="@drawable/banner"
             android:contentDescription="@string/app_name"
-            android:maxHeight="200dp" />
+            android:maxHeight="200dp"
+            android:scaleType="fitXY" />
     </LinearLayout>
 
     <LinearLayout

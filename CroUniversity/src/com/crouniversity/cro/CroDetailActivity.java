@@ -67,7 +67,7 @@ public class CroDetailActivity extends BaseActivity implements
 		for (int i = 0; i < tips.length; i++) {
 			ImageView imageView = new ImageView(this);
 			imageView.setLayoutParams(new LayoutParams(15, 15));
-			imageView.setScaleType(ScaleType.CENTER_CROP);
+			imageView.setScaleType(ScaleType.FIT_XY);
 
 			tips[i] = imageView;
 			if (i == 0) {

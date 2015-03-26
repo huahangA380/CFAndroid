@@ -1,7 +1,7 @@
 package com.crouniversity.sns;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
@@ -17,7 +16,7 @@ import android.widget.TextView;
 import com.example.crouniversity.R;
 
 public class SnsStudyMainAdapter extends BaseAdapter {
-	private List<Map<String, Object>> data;
+	private List<HashMap<String, Object>> data;
 	private LayoutInflater layoutInflater;
 	private SnsStudyMainViewHolder viewHolder;
 
@@ -26,7 +25,7 @@ public class SnsStudyMainAdapter extends BaseAdapter {
 		// this.mLayoutInflater = LayoutInflater.from(context);
 		// data = CroMainGetData.getData();
 		this.layoutInflater = LayoutInflater.from(context);
-		data = SnsStudyMainGetData.getData();
+		data = SnsStudyMainGetData.getData(context);
 	}
 
 	@Override
@@ -52,8 +51,8 @@ public class SnsStudyMainAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		viewHolder = new SnsStudyMainViewHolder();
 		if (convertView == null) {
-			convertView = layoutInflater.inflate(R.layout.layout_studysns_main_item,
-					parent, false);
+			convertView = layoutInflater.inflate(
+					R.layout.layout_studysns_main_item, parent, false);
 			viewHolder.tv_studysns_title = (TextView) convertView
 					.findViewById(R.id.tv_studysns_title);
 			viewHolder.tv_studysns_conents = (TextView) convertView
@@ -62,24 +61,24 @@ public class SnsStudyMainAdapter extends BaseAdapter {
 					.findViewById(R.id.tv_var_man);
 			viewHolder.tv_var_time = (TextView) convertView
 					.findViewById(R.id.tv_var_time);
-			viewHolder.ck_good = (CheckBox) convertView
-					.findViewById(R.id.ck_good);
-			viewHolder.ck_comment = (CheckBox) convertView
-					.findViewById(R.id.ck_comment);
+			// viewHolder.ck_good = (CheckBox) convertView
+			// .findViewById(R.id.ck_good);
+			// viewHolder.ck_comment = (CheckBox) convertView
+			// .findViewById(R.id.ck_comment);
 			viewHolder.ck_comment_num = (TextView) convertView
-					.findViewById(R.id.ck_comment_num);
+					.findViewById(R.id.tv_comment_num);
 			convertView.setTag(viewHolder);
 		} else {
 			viewHolder = (SnsStudyMainViewHolder) convertView.getTag();
 		}
 		viewHolder.tv_studysns_title.setText((CharSequence) data.get(position)
-				.get("tv_studysns_title"));
+				.get("title"));
 		viewHolder.tv_studysns_conents.setText((CharSequence) data
-				.get(position).get("tv_studysns_conents"));
+				.get(position).get("content"));
 		viewHolder.tv_var_man.setText((CharSequence) data.get(position).get(
-				"tv_var_man"));
+				"author"));
 		viewHolder.tv_var_time.setText((CharSequence) data.get(position).get(
-				"tv_var_time"));
+				"date"));
 		viewHolder.ck_good
 				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -93,9 +92,10 @@ public class SnsStudyMainAdapter extends BaseAdapter {
 							Log.i("******************", "È¡ÏûÔÞ");
 						}
 					}
+
 				});
 		viewHolder.ck_comment_num.setText((CharSequence) data.get(position)
-				.get("ck_comment_num"));
+				.get("num"));
 		return convertView;
 	}
 }

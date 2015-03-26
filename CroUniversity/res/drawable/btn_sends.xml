@@ -3,5 +3,4 @@
 
     <item android:drawable="@drawable/btn_send_green" android:state_pressed="true"></item>
     <item android:drawable="@drawable/btn_send"></item>
-
-</selector>
+</selector>

@@ -6,14 +6,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.crouniversity.fab.FloatingActionButton;
-import com.crouniversity.fab.ShowHideOnScroll;
 import com.crouniversity.main.MainActivity;
+import com.crouniversity.userinfo.UserInfoMainActivity;
 import com.example.crouniversity.R;
 
 public class SnsStudyMainFragment extends Fragment {
@@ -48,7 +49,15 @@ public class SnsStudyMainFragment extends Fragment {
 		ListView lv_studysns_main = (ListView) view
 				.findViewById(R.id.lv_studysns_main);
 		lv_studysns_main.setAdapter(adapter);
-		lv_studysns_main.setOnTouchListener(new ShowHideOnScroll(fab));
+		fab.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(getActivity(),
+						UserInfoMainActivity.class));
+			}
+		});
 		lv_studysns_main.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

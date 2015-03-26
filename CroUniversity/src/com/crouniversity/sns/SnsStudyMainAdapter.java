@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
@@ -61,10 +62,10 @@ public class SnsStudyMainAdapter extends BaseAdapter {
 					.findViewById(R.id.tv_var_man);
 			viewHolder.tv_var_time = (TextView) convertView
 					.findViewById(R.id.tv_var_time);
-			// viewHolder.ck_good = (CheckBox) convertView
-			// .findViewById(R.id.ck_good);
-			// viewHolder.ck_comment = (CheckBox) convertView
-			// .findViewById(R.id.ck_comment);
+			viewHolder.ck_good = (CheckBox) convertView
+					.findViewById(R.id.ck_good);
+			viewHolder.ck_comment = (CheckBox) convertView
+					.findViewById(R.id.ck_comment);
 			viewHolder.ck_comment_num = (TextView) convertView
 					.findViewById(R.id.tv_comment_num);
 			convertView.setTag(viewHolder);

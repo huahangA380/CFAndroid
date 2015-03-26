@@ -5,11 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.crouniversity.fab.FloatingActionButton;
 import com.crouniversity.fab.ShowHideOnScroll;
@@ -70,4 +74,23 @@ public class SnsStudyMainFragment extends Fragment {
 		return fragment;
 
 	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		// TODO Auto-generated method stub
+		inflater.inflate(R.menu.commit, menu);
+		super.onCreateOptionsMenu(menu, inflater);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		int id = item.getItemId();
+
+		if (id == R.id.commit) {
+			Toast.makeText(getActivity(), "test", 1).show();
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
 }

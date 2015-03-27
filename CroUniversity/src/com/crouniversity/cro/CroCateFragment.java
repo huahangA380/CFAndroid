@@ -1,4 +1,4 @@
-package com.crouniversity.sns;
+package com.crouniversity.cro;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -20,13 +20,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.crouniversity.fab.FloatingActionButton;
 import com.crouniversity.fab.ShowHideOnScroll;
 import com.crouniversity.main.MainActivity;
 import com.crouniversity.userinfo.UserInfoMainActivity;
+import com.crouniversity.utils.GetPicture;
 import com.crouniversity.utils.ReadTextFile;
 import com.example.crouniversity.R;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -34,7 +37,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
-public class SnsLiveMainFragment extends Fragment {
+public class CroCateFragment extends Fragment {
 
 	private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
 	private PullToRefreshListView mPullRefreshListView;
@@ -61,8 +64,7 @@ public class SnsLiveMainFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		View v = inflater
-				.inflate(R.layout.fragment_sns_main, container, false);
+		View v = inflater.inflate(R.layout.fragment_cro_main, container, false);
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 
@@ -109,7 +111,7 @@ public class SnsLiveMainFragment extends Fragment {
 					}
 				});
 
-		listItem = SnsMainGetData.getData(getActivity());// 获取LIST数据
+		listItem = CroMainGetData.getData(getActivity());// 获取LIST数据
 		// 设置适配器
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 		actualListView.setAdapter(adapter);
@@ -120,7 +122,7 @@ public class SnsLiveMainFragment extends Fragment {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(getActivity(), SnsDetailActivity.class));
+				startActivity(new Intent(getActivity(), CroDetailActivity.class));
 			}
 		});
 		return v;
@@ -142,18 +144,22 @@ public class SnsLiveMainFragment extends Fragment {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			InputStream inputStream;
 			try {
-				inputStream = getActivity().getAssets().open("test.txt");
+				inputStream = getActivity().getAssets().open("cro.txt");
 				String json = ReadTextFile.readTextFile(inputStream);
 				JSONArray array = new JSONArray(json);
-				for (int i = 0; i < array.length(); i++) {
+				int n = array.length();
+				for (int i = 0; i < n; i++) {
 					map = new HashMap<String, Object>();
-					map.put("title", array.getJSONObject(i).getString("title"));
-					map.put("content",
-							array.getJSONObject(i).getString("content"));
-					map.put("author", array.getJSONObject(i)
-							.getString("author"));
-					map.put("date", array.getJSONObject(i).getString("date"));
-					map.put("num", array.getJSONObject(i).getString("num"));
+					map.put("cro_img_main",
+							array.getJSONObject(i).getString("cro_img_main"));
+					map.put("cro_pro_main",
+							array.getJSONObject(i).getString("cro_pro_main"));
+					map.put("cro_tv_completed", array.getJSONObject(i)
+							.getString("cro_tv_completed"));
+					map.put("cro_tv_fund",
+							array.getJSONObject(i).getString("cro_tv_fund"));
+					map.put("cro_tv_remaindays", array.getJSONObject(i)
+							.getString("cro_tv_remaindays"));
 					list.add(map);
 				}
 				return list;
@@ -204,18 +210,22 @@ public class SnsLiveMainFragment extends Fragment {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			InputStream inputStream;
 			try {
-				inputStream = getActivity().getAssets().open("test.txt");
+				inputStream = getActivity().getAssets().open("cro.txt");
 				String json = ReadTextFile.readTextFile(inputStream);
 				JSONArray array = new JSONArray(json);
-				for (int i = 0; i < array.length(); i++) {
+				int n = array.length();
+				for (int i = 0; i < n; i++) {
 					map = new HashMap<String, Object>();
-					map.put("title", array.getJSONObject(i).getString("title"));
-					map.put("content",
-							array.getJSONObject(i).getString("content"));
-					map.put("author", array.getJSONObject(i)
-							.getString("author"));
-					map.put("date", array.getJSONObject(i).getString("date"));
-					map.put("num", array.getJSONObject(i).getString("num"));
+					map.put("cro_img_main",
+							array.getJSONObject(i).getString("cro_img_main"));
+					map.put("cro_pro_main",
+							array.getJSONObject(i).getString("cro_pro_main"));
+					map.put("cro_tv_completed", array.getJSONObject(i)
+							.getString("cro_tv_completed"));
+					map.put("cro_tv_fund",
+							array.getJSONObject(i).getString("cro_tv_fund"));
+					map.put("cro_tv_remaindays", array.getJSONObject(i)
+							.getString("cro_tv_remaindays"));
 					list.add(map);
 				}
 				return list;
@@ -279,45 +289,49 @@ public class SnsLiveMainFragment extends Fragment {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 
-			SnsViewHolder holder = null;
+			CroViewHolder holder = null;
+
 			if (convertView == null) {
-
-				holder = new SnsViewHolder();
-
-				convertView = mInflater.inflate(
-						R.layout.layout_sns_main_item, parent, false);
-				holder.title = (TextView) convertView
-						.findViewById(R.id.tv_studysns_title);
-				holder.content = (TextView) convertView
-						.findViewById(R.id.tv_studysns_conents);
-				holder.author = (TextView) convertView
-						.findViewById(R.id.tv_var_man);
-				holder.date = (TextView) convertView
-						.findViewById(R.id.tv_var_time);
-				holder.num = (TextView) convertView
-						.findViewById(R.id.tv_comment_num);
+				holder = new CroViewHolder();
+				convertView = mInflater.inflate(R.layout.layout_cro_main_item,
+						parent, false);
+				holder.img_cro_main = (ImageView) convertView
+						.findViewById(R.id.img_cro_main);
+				holder.pro = (ProgressBar) convertView
+						.findViewById(R.id.pro_cro_completed);
+				holder.tv_complete = (TextView) convertView
+						.findViewById(R.id.tv_main_completed);
+				holder.tv_fund = (TextView) convertView
+						.findViewById(R.id.tv_main_fund);
+				holder.tv_main_remaindays = (TextView) convertView
+						.findViewById(R.id.tv_main_remaindays);
 				convertView.setTag(holder);
 
 			} else {
 
-				holder = (SnsViewHolder) convertView.getTag();
+				holder = (CroViewHolder) convertView.getTag();
 			}
+			holder.img_cro_main.setImageBitmap(GetPicture.getPic(
+					((String) listItem.get(position).get("cro_img_main")),
+					getActivity()));
+			String s = (String) listItem.get(position).get("cro_pro_main");
+			int i = Integer.parseInt(s);
+			holder.pro.setProgress(i);
+			holder.tv_complete.setText((String) listItem.get(position).get(
+					"cro_tv_completed"));
+			holder.tv_fund.setText((String) listItem.get(position).get(
+					"cro_tv_fund"));
+			holder.tv_main_remaindays.setText((String) listItem.get(position)
+					.get("cro_tv_remaindays"));
 
-			holder.title.setText((String) listItem.get(position).get("title"));
-			holder.content.setText((String) listItem.get(position).get(
-					"content"));
-			holder.author
-					.setText((String) listItem.get(position).get("author"));
-			holder.date.setText((String) listItem.get(position).get("date"));
-			holder.num.setText((String) listItem.get(position).get("num"));
 			return convertView;
 		}
 
 	}
 
-	public SnsLiveMainFragment newInstance(int selectnum) {
+	public CroCateFragment newInstance(int selectnum) {
 		// TODO Auto-generated method stub
-		SnsLiveMainFragment fragment = new SnsLiveMainFragment();
+		CroCateFragment fragment = new CroCateFragment();
 		Bundle args = new Bundle();
 		args.putInt(SELECTNUM, selectnum);
 		fragment.setArguments(args);

@@ -4,7 +4,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class CroMainViewHolder {
+public class CroViewHolder {
 	public ImageView img_cro_main;// 项目主要图片
 	public ProgressBar pro;// 项目进度条
 	public TextView tv_complete;// 项目进度

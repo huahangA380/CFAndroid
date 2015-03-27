@@ -6,7 +6,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="icActionEdit">@drawable/ic_action_edit_light</item>
         <item name="floatingActionButtonStyle">@style/AppTheme.Fab.Light</item>
-        <item name="actionBarStyle">@style/customactionbar</item>
+        <!-- <item name="actionBarStyle">@style/customactionbar</item> -->
     </style>
 
     <style name="customactionbar" parent="@android:style/Widget.ActionBar">

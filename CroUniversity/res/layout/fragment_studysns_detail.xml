@@ -18,7 +18,7 @@
             <include
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                layout="@layout/layout_studysns_detail_item" />
+                layout="@layout/layout_sns_detail_item" />
         </LinearLayout>
     </ScrollView>
 

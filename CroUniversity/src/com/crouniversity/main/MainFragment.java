@@ -47,7 +47,7 @@ public class MainFragment extends Fragment {
 		fragmentList = new ArrayList<Fragment>();
 		fragmentCro = new MainFragmentCro();
 		fragmentSns = new MainFragmentSns();
-		fragmentList.add(fragmentCro.newInstance(1));
+		fragmentList.add(fragmentCro);
 		fragmentList.add(fragmentSns);
 		titleList.add("ÖÚ³ï");
 		titleList.add("ÉçÇø");

@@ -1,26 +1,51 @@
 package com.crouniversity.cro;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import com.example.crouniversity.R;
+import org.json.JSONArray;
+
+import android.content.Context;
+
+import com.crouniversity.utils.ReadTextFile;
 
 public class CroMainGetData {
-	public static List<Map<String, Object>> getData() {
+	public static ArrayList<HashMap<String, Object>> getData(Context context) {
 		// TODO Auto-generated method stub
-		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		Map<String, Object> map = new HashMap<String, Object>();
-		//
-		for (int i = 0; i < 100; i++) {
-			map.put("img_cro_main", R.drawable.banner);
-			// map.put("pro_cro_completed", 20);
-			map.put("tv_main_completed", "20%");
-			map.put("tv_main_fund", "2000ิช");
-			map.put("tv_main_remaindays", "20ฬ์");
-			list.add(map);
+
+		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+		InputStream inputStream;
+		try {
+			inputStream = context.getAssets().open("cro.txt");
+			String json = ReadTextFile.readTextFile(inputStream);
+			JSONArray array = new JSONArray(json);
+			int n = array.length();
+			for (int i = 0; i < n; i++) {
+				map = new HashMap<String, Object>();
+				map.put("cro_img_main",
+						array.getJSONObject(i).getString("cro_img_main"));
+				map.put("cro_pro_main",
+						array.getJSONObject(i).getString("cro_pro_main"));
+				map.put("cro_tv_completed",
+						array.getJSONObject(i).getString("cro_tv_completed"));
+				map.put("cro_tv_fund",
+						array.getJSONObject(i).getString("cro_tv_fund"));
+				map.put("cro_tv_remaindays",
+						array.getJSONObject(i).getString("cro_tv_remaindays"));
+				list.add(map);
+			}
+			return list;
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
 		}
+
 		return list;
+
 	}
+
 }

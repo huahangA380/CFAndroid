@@ -34,7 +34,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
-public class SnsLiveMainFragment extends Fragment {
+public class SnsOriginalityFragment extends Fragment {
 
 	private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
 	private PullToRefreshListView mPullRefreshListView;
@@ -61,8 +61,7 @@ public class SnsLiveMainFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		View v = inflater
-				.inflate(R.layout.fragment_sns_main, container, false);
+		View v = inflater.inflate(R.layout.fragment_sns_main, container, false);
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 
@@ -284,8 +283,8 @@ public class SnsLiveMainFragment extends Fragment {
 
 				holder = new SnsViewHolder();
 
-				convertView = mInflater.inflate(
-						R.layout.layout_sns_main_item, parent, false);
+				convertView = mInflater.inflate(R.layout.layout_sns_main_item,
+						parent, false);
 				holder.title = (TextView) convertView
 						.findViewById(R.id.tv_studysns_title);
 				holder.content = (TextView) convertView
@@ -315,9 +314,9 @@ public class SnsLiveMainFragment extends Fragment {
 
 	}
 
-	public SnsLiveMainFragment newInstance(int selectnum) {
+	public SnsOriginalityFragment newInstance(int selectnum) {
 		// TODO Auto-generated method stub
-		SnsLiveMainFragment fragment = new SnsLiveMainFragment();
+		SnsOriginalityFragment fragment = new SnsOriginalityFragment();
 		Bundle args = new Bundle();
 		args.putInt(SELECTNUM, selectnum);
 		fragment.setArguments(args);

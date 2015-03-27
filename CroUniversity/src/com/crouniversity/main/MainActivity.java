@@ -17,9 +17,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import com.crouniversity.cro.CroCateFragment;
+import com.crouniversity.cro.CroCommunityFragment;
 import com.crouniversity.cro.CroProductFragment;
+import com.crouniversity.cro.CroTravelFragment;
 import com.crouniversity.setting.MainSettingFragment;
 import com.crouniversity.sns.SnsLiveMainFragment;
+import com.crouniversity.sns.SnsOriginalityFragment;
 import com.crouniversity.sns.SnsStudyMainFragment;
 import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
@@ -47,6 +51,7 @@ public class MainActivity extends ActionBarActivity implements
 		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
 		view = getLayoutInflater().inflate(R.layout.toast_cutsomeview, null);
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
@@ -62,11 +67,15 @@ public class MainActivity extends ActionBarActivity implements
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		CroProductFragment croProductFragment = new CroProductFragment();
-		PlaceholderFragment p = new PlaceholderFragment();
+
 		MainFragment mainFragment = new MainFragment();
 		SnsStudyMainFragment snsStudyMainFragment = new SnsStudyMainFragment();
 		MainSettingFragment mainSettingFragment = new MainSettingFragment();
 		SnsLiveMainFragment snsLivewFragment = new SnsLiveMainFragment();
+		CroCommunityFragment croCommunityFragment = new CroCommunityFragment();
+		CroTravelFragment croTravelFragment = new CroTravelFragment();
+		CroCateFragment croCateFragment = new CroCateFragment();
+		SnsOriginalityFragment snsOriginalityFragment = new SnsOriginalityFragment();
 		switch (position) {
 		case 0:
 			fragmentManager.beginTransaction()
@@ -80,16 +89,20 @@ public class MainActivity extends ActionBarActivity implements
 					.commit();
 			break;
 		case 2:
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, p.newInstance(2)).commit();
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container,
+							croCommunityFragment.newInstance(2)).commit();
 			break;
 		case 3:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, p.newInstance(3)).commit();
+					.replace(R.id.container, croTravelFragment.newInstance(3))
+					.commit();
 			break;
 		case 4:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, p.newInstance(4)).commit();
+					.replace(R.id.container, croCateFragment.newInstance(4))
+					.commit();
 			break;
 		case 5:
 			fragmentManager
@@ -103,8 +116,10 @@ public class MainActivity extends ActionBarActivity implements
 					.commit();
 			break;
 		case 7:
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, p.newInstance(7)).commit();
+			fragmentManager
+					.beginTransaction()
+					.replace(R.id.container,
+							snsOriginalityFragment.newInstance(7)).commit();
 			break;
 		case 8:
 			fragmentManager

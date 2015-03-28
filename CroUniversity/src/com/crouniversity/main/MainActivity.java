@@ -1,20 +1,15 @@
 package com.crouniversity.main;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 
 import com.crouniversity.cro.CroCateFragment;
@@ -51,7 +46,8 @@ public class MainActivity extends ActionBarActivity implements
 		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		overridePendingTransition(android.R.anim.fade_in,
+				android.R.anim.fade_out);// 淡入淡出效果
 		view = getLayoutInflater().inflate(R.layout.toast_cutsomeview, null);
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
@@ -67,7 +63,6 @@ public class MainActivity extends ActionBarActivity implements
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		CroProductFragment croProductFragment = new CroProductFragment();
-
 		MainFragment mainFragment = new MainFragment();
 		SnsStudyMainFragment snsStudyMainFragment = new SnsStudyMainFragment();
 		MainSettingFragment mainSettingFragment = new MainSettingFragment();
@@ -167,13 +162,8 @@ public class MainActivity extends ActionBarActivity implements
 	public void restoreActionBar() {
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setBackgroundDrawable(new ColorDrawable(
-				android.R.color.transparent));
-		// 设置半透明的底色
 		actionBar.setBackgroundDrawable(getResources().getDrawable(
 				R.drawable.sigin_button));
-		// actionBar.setBackgroundDrawable(getResources().getDrawable(
-		// android.R.color.holo_orange_light));
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setTitle(mTitle);
 	}
@@ -204,52 +194,6 @@ public class MainActivity extends ActionBarActivity implements
 			item.setIcon(R.drawable.ic_drawer);
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		private static final String ARG_SECTION_NUMBER = "section_number";
-
-		/**
-		 * Returns a new instance of this fragment for the given section number.
-		 */
-		public PlaceholderFragment newInstance(int sectionNumber) {
-			PlaceholderFragment fragment = new PlaceholderFragment();
-			Bundle args = new Bundle();
-			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-			fragment.setArguments(args);
-			return fragment;
-		}
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_studysns_detail,
-					container, false);
-			// TextView tv = (TextView)
-			// rootView.findViewById(R.id.section_label);
-			// String b = getArguments().toString();
-			// tv.setText(b);
-			// final EditText input = (EditText) rootView
-			// .findViewById(R.id.edt_input);
-			return rootView;
-		}
-
-		@Override
-		public void onAttach(Activity activity) {
-			super.onAttach(activity);
-			((MainActivity) activity).onSectionAttached(getArguments().getInt(
-					ARG_SECTION_NUMBER));
-		}
 	}
 
 	@Override

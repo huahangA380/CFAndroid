@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="#CCCCCCCC">
+    android:background="#CCCCCCCC"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/tv_accountset"
@@ -36,15 +36,14 @@
             android:textColor="@color/font_black_content"
             android:textSize="@dimen/font_setting_size" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/checkbox_background"
+            android:button="@null"
             android:gravity="end|center"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="是否接收推送"
-            android:textColor="@color/font_black_content" />
+            android:paddingRight="10dp" />
     </LinearLayout>
 
     <TextView

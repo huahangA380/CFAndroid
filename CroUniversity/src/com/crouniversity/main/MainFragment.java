@@ -1,28 +1,28 @@
 package com.crouniversity.main;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.crouniversity.cro.CroCommunityFragment;
+import com.crouniversity.sns.SnsLiveMainFragment;
 import com.example.crouniversity.R;
 
 public class MainFragment extends Fragment {
 	private static final String ARG_SECTION_NUMBER = "section_number";
-	private MainFragmentCro fragmentCro;
-	private MainFragmentSns fragmentSns;
-	private ViewPager viewPager;
-	private ArrayList<Fragment> fragmentList;// 页面列表
-	ArrayList<String> titleList = new ArrayList<String>();// 标题列表
-	private PagerTabStrip pagerTabStrip;// 设置标题属性
+
+	private PagerSlidingTabStrip tabs;
+	private ViewPager pager;
+	// private DisplayMetrics dm;
+	private String[] titles = { "众筹", "社区" };
+	private SnsLiveMainFragment sns;
+	private CroCommunityFragment cro;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,25 +36,51 @@ public class MainFragment extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.fragment_main, container, false);
-		viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-		pagerTabStrip = (PagerTabStrip) view.findViewById(R.id.pagertabstrip);
-		pagerTabStrip.setTabIndicatorColor(getResources().getColor(
-				android.R.color.holo_blue_dark));// 下划线颜色
-		pagerTabStrip.setBackgroundResource(android.R.color.holo_orange_dark);// 背景颜色
-		pagerTabStrip.setTextColor(getResources().getColor(
-				R.color.abc_search_url_text_normal));
-		pagerTabStrip.setTextSize(2, 18);
-		fragmentList = new ArrayList<Fragment>();
-		fragmentCro = new MainFragmentCro();
-		fragmentSns = new MainFragmentSns();
-		fragmentList.add(fragmentCro);
-		fragmentList.add(fragmentSns);
-		titleList.add("众筹");
-		titleList.add("社区");
-
-		viewPager.setAdapter(new ViewPagerActivity(getFragmentManager()));
-		viewPager.setOffscreenPageLimit(2);// 预加载2页面
+		// dm = getResources().getDisplayMetrics();
+		pager = (ViewPager) view.findViewById(R.id.viewPager);
+		tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
+		tabs.setTextSize(40);
+		pager.setAdapter(new MyAdapter(getFragmentManager(), titles));
+		tabs.setViewPager(pager);
 		return view;
+	}
+
+	public class MyAdapter extends FragmentPagerAdapter {
+		String[] _titles;
+
+		public MyAdapter(FragmentManager fm, String[] titles) {
+			super(fm);
+			_titles = titles;
+		}
+
+		@Override
+		public CharSequence getPageTitle(int position) {
+			return _titles[position];
+		}
+
+		@Override
+		public int getCount() {
+			return _titles.length;
+		}
+
+		@Override
+		public Fragment getItem(int position) {
+			switch (position) {
+			case 0:
+				if (cro == null) {
+					cro = new CroCommunityFragment().newInstance(position);
+				}
+				return cro;
+			case 1:
+				if (sns == null) {
+					sns = new SnsLiveMainFragment().newInstance(position);
+				}
+				return sns;
+
+			default:
+				return null;
+			}
+		}
 	}
 
 	public MainFragment newInstance(int sectionnum) {
@@ -72,31 +98,6 @@ public class MainFragment extends Fragment {
 		super.onAttach(activity);
 		((MainActivity) activity).onSectionAttached(getArguments().getInt(
 				ARG_SECTION_NUMBER));
-	}
-
-	public class ViewPagerActivity extends FragmentPagerAdapter {
-
-		public ViewPagerActivity(FragmentManager fm) {
-			super(fm);
-			// TODO Auto-generated constructor stub
-		}
-
-		@Override
-		public Fragment getItem(int arg0) {
-			return fragmentList.get(arg0);
-		}
-
-		@Override
-		public int getCount() {
-			return fragmentList.size();
-		}
-
-		@Override
-		public CharSequence getPageTitle(int position) {
-			// TODO Auto-generated method stub
-			return titleList.get(position);
-		}
-
 	}
 
 	@Override

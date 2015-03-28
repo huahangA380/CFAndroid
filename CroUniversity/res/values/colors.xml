@@ -11,5 +11,6 @@
 
     <color name="bg_maopao_comment">#e6e6e6</color>
     <color name="font_black_comment">#666666</color>
+    <color name="background_tab_pressed">#8833B5E5</color>
 
 </resources>

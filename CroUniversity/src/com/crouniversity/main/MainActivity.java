@@ -47,7 +47,7 @@ public class MainActivity extends ActionBarActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		overridePendingTransition(android.R.anim.fade_in,
-				android.R.anim.fade_out);// µ­Èëµ­³öĞ§¹û
+				android.R.anim.fade_out);// æ·¡å…¥æ·¡å‡ºæ•ˆæœ
 		view = getLayoutInflater().inflate(R.layout.toast_cutsomeview, null);
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
@@ -197,16 +197,16 @@ public class MainActivity extends ActionBarActivity implements
 	}
 
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {// ÖØĞ´back¼ü
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
+	public boolean onKeyDown(int keyCode, KeyEvent event) {// é‡å†™backé”®
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			long secondtime = System.currentTimeMillis();
-			if (secondtime - firstime > 3000) { // Èç¹û´óÓÚ3Ãë µ¯³ötoastÌáÊ¾
+			if (secondtime - firstime > 3000) { // å¦‚æœå¤§äº3ç§’ å¼¹å‡ºtoastæç¤º
 				firstime = System.currentTimeMillis();
-				ToastUtil.showOutToast(getApplicationContext(), "ÔÙ´Îµã»÷·µ»Ø¼üÍË³ö",
+				ToastUtil.showOutToast(getApplicationContext(), "å†æ¬¡ç‚¹å‡»è¿”å›é”®é€€å‡º",
 						view);
 				return true;
-			} else { // Èç¹ûĞ¡ÓÚ3ÃëÍË³ö³ÌĞò
+			} else { // å¦‚æœå°äº3ç§’é€€å‡ºç¨‹åº
 				MainActivity.this.finish();
 			}
 		}

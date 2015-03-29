@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -22,6 +25,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crouniversity.fab.FloatingActionButton;
 import com.crouniversity.fab.ShowHideOnScroll;
@@ -64,7 +68,7 @@ public class SnsOriginalityFragment extends Fragment {
 		View v = inflater.inflate(R.layout.fragment_sns_main, container, false);
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
-
+		setHasOptionsMenu(true);
 		FloatingActionButton fab = (FloatingActionButton) v
 				.findViewById(R.id.fab);
 		fab.setOnClickListener(new OnClickListener() {
@@ -322,6 +326,27 @@ public class SnsOriginalityFragment extends Fragment {
 		fragment.setArguments(args);
 		return fragment;
 
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		if (id == R.id.commit) {
+			Toast.makeText(getActivity(), "test", Toast.LENGTH_SHORT).show();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onPrepareOptionsMenu(Menu menu) {
+
+		menu.clear();
+
+		MenuInflater inflater = getActivity().getMenuInflater();
+		inflater.inflate(R.menu.commit, menu);
+		super.onPrepareOptionsMenu(menu);
 	}
 
 }

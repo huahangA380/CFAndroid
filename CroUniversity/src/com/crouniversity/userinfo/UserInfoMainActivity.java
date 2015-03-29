@@ -27,7 +27,7 @@ public class UserInfoMainActivity extends BaseActivity {
 				R.drawable.sigin_button));
 		FloatingActionButton floating = (FloatingActionButton) findViewById(R.id.fab);
 		floating.initBackground();
-		floating.setImageResource(R.drawable.ic_launcher);
+		floating.setImageResource(R.drawable.item08);
 	}
 
 }

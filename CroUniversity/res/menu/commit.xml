@@ -6,7 +6,7 @@
 
     <item
         android:id="@+id/commit"
-        android:icon="@drawable/ic_menu_ok"
+        android:icon="@drawable/ic_action_edit_light"
         android:title="@string/commit"
         app:showAsAction="always"/>
 

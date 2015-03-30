@@ -28,8 +28,8 @@ import android.widget.TextView;
 import com.crouniversity.cro.CroDetailActivity;
 import com.crouniversity.cro.CroMainGetData;
 import com.crouniversity.cro.CroViewHolder;
-import com.crouniversity.fab.FloatingActionButton;
-import com.crouniversity.fab.ShowHideOnScroll;
+import com.crouniversity.roundimg.RoundImageView;
+import com.crouniversity.roundimg.ShowHideOnScroll;
 import com.crouniversity.userinfo.UserInfoMainActivity;
 import com.crouniversity.utils.GetPicture;
 import com.crouniversity.utils.ReadTextFile;
@@ -70,9 +70,8 @@ public class MainFragmentCro extends Fragment {
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 
-		FloatingActionButton fab = (FloatingActionButton) v
-				.findViewById(R.id.fab);
-		fab.setOnClickListener(new OnClickListener() {
+		RoundImageView round = (RoundImageView) v.findViewById(R.id.roundimg);
+		round.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -117,7 +116,7 @@ public class MainFragmentCro extends Fragment {
 		// …Ë÷√  ≈‰∆˜
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 		actualListView.setAdapter(adapter);
-		actualListView.setOnTouchListener(new ShowHideOnScroll(fab));
+		actualListView.setOnTouchListener(new ShowHideOnScroll(round));
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.view.Window;
 
-import com.crouniversity.fab.FloatingActionButton;
 import com.crouniversity.main.BaseActivity;
 import com.example.crouniversity.R;
 
@@ -25,9 +24,6 @@ public class UserInfoMainActivity extends BaseActivity {
 		// 设置半透明的底色
 		actionBar.setBackgroundDrawable(getResources().getDrawable(
 				R.drawable.sigin_button));
-		FloatingActionButton floating = (FloatingActionButton) findViewById(R.id.fab);
-		floating.initBackground();
-		floating.setImageResource(R.drawable.item08);
 	}
 
 }

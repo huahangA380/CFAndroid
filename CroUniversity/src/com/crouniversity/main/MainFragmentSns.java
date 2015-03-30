@@ -23,8 +23,8 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.crouniversity.fab.FloatingActionButton;
-import com.crouniversity.fab.ShowHideOnScroll;
+import com.crouniversity.roundimg.RoundImageView;
+import com.crouniversity.roundimg.ShowHideOnScroll;
 import com.crouniversity.sns.SnsDetailActivity;
 import com.crouniversity.sns.SnsMainGetData;
 import com.crouniversity.sns.SnsViewHolder;
@@ -67,9 +67,8 @@ public class MainFragmentSns extends Fragment {
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 
-		FloatingActionButton fab = (FloatingActionButton) v
-				.findViewById(R.id.fab);
-		fab.setOnClickListener(new OnClickListener() {
+		RoundImageView round = (RoundImageView) v.findViewById(R.id.roundimg);
+		round.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -114,7 +113,7 @@ public class MainFragmentSns extends Fragment {
 		// …Ë÷√  ≈‰∆˜
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 		actualListView.setAdapter(adapter);
-		actualListView.setOnTouchListener(new ShowHideOnScroll(fab));
+		actualListView.setOnTouchListener(new ShowHideOnScroll(round));
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

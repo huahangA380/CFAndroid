@@ -27,9 +27,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.crouniversity.fab.FloatingActionButton;
-import com.crouniversity.fab.ShowHideOnScroll;
 import com.crouniversity.main.MainActivity;
+import com.crouniversity.roundimg.RoundImageView;
+import com.crouniversity.roundimg.ShowHideOnScroll;
 import com.crouniversity.userinfo.UserInfoMainActivity;
 import com.crouniversity.utils.ReadTextFile;
 import com.example.crouniversity.R;
@@ -69,15 +69,16 @@ public class SnsStudyMainFragment extends Fragment {
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 		setHasOptionsMenu(true);
-		FloatingActionButton fab = (FloatingActionButton) v
-				.findViewById(R.id.fab);
-		fab.setOnClickListener(new OnClickListener() {
+		final RoundImageView round = (RoundImageView) v
+				.findViewById(R.id.roundimg);
+		round.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(getActivity(),
 						UserInfoMainActivity.class));
+
 			}
 		});
 		// 设定下拉监听函数
@@ -116,7 +117,7 @@ public class SnsStudyMainFragment extends Fragment {
 		// 设置适配器
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 		actualListView.setAdapter(adapter);
-		actualListView.setOnTouchListener(new ShowHideOnScroll(fab));
+		actualListView.setOnTouchListener(new ShowHideOnScroll(round));
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

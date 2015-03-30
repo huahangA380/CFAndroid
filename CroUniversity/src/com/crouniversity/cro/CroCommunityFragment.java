@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.json.JSONArray;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -24,9 +25,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.crouniversity.fab.FloatingActionButton;
-import com.crouniversity.fab.ShowHideOnScroll;
 import com.crouniversity.main.MainActivity;
+import com.crouniversity.roundimg.RoundImageView;
+import com.crouniversity.roundimg.ShowHideOnScroll;
 import com.crouniversity.userinfo.UserInfoMainActivity;
 import com.crouniversity.utils.GetPicture;
 import com.crouniversity.utils.ReadTextFile;
@@ -67,9 +68,8 @@ public class CroCommunityFragment extends Fragment {
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 
-		FloatingActionButton fab = (FloatingActionButton) v
-				.findViewById(R.id.fab);
-		fab.setOnClickListener(new OnClickListener() {
+		RoundImageView round = (RoundImageView) v.findViewById(R.id.roundimg);
+		round.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -114,7 +114,7 @@ public class CroCommunityFragment extends Fragment {
 		// …Ë÷√  ≈‰∆˜
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 		actualListView.setAdapter(adapter);
-		actualListView.setOnTouchListener(new ShowHideOnScroll(fab));
+		actualListView.setOnTouchListener(new ShowHideOnScroll(round));
 		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

@@ -10,7 +10,7 @@ public class SnsDetailActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment_studysns_detail);
+		setContentView(R.layout.activity_sns_detail);
 		// View layout = findViewById(R.id.commentArea);
 		// layout.setVisibility(View.GONE);
 	}

@@ -2,7 +2,9 @@ package com.crouniversity.cro;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,8 +13,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
@@ -55,7 +59,16 @@ public class CroDetailActivity extends BaseActivity implements
 
 		ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup);
 		viewPager = (ViewPager) findViewById(R.id.viewPager);
+		Button btn_support = (Button) findViewById(R.id.btn_support);
+		btn_support.setOnClickListener(new OnClickListener() {
 
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(getApplicationContext(),
+						CroTrancheActivity.class));
+			}
+		});
 		// ‘ÿ»ÎÕº∆¨◊ ‘¥ID
 		imgIdArray = new int[] { R.drawable.item01, R.drawable.item02,
 				R.drawable.item03, R.drawable.item04, R.drawable.item05,

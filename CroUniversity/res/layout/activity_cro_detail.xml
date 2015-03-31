@@ -58,14 +58,7 @@
                     android:id="@+id/tv_cro_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="部分项目介绍" />
-
-                <TextView
-                    android:id="@+id/tv_cro_contents"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="查看项目介绍" />
+                    android:text="项目介绍" />
 
                 <TextView
                     android:id="@+id/tv_cro_author"
@@ -82,45 +75,10 @@
                     android:text="项目评论" />
             </LinearLayout>
 
-            <LinearLayout
+            <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="￥100" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:text="已获支持人数" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:text="限制支持人数" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="项目收费分档承诺内容" />
-            </LinearLayout>
+                layout="@layout/layout_cro_plan" />
         </LinearLayout>
     </ScrollView>
 

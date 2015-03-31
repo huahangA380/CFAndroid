@@ -25,7 +25,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.crouniversity.main.MainActivity;
 import com.crouniversity.roundimg.RoundImageView;
@@ -330,8 +329,8 @@ public class SnsLiveMainFragment extends Fragment {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
-		if (id == R.id.commit) {
-			Toast.makeText(getActivity(), "test", Toast.LENGTH_SHORT).show();
+		if (id == R.id.issue) {
+			startActivity(new Intent(getActivity(), SnsIssueActivity.class));
 			return true;
 		}
 
@@ -344,7 +343,7 @@ public class SnsLiveMainFragment extends Fragment {
 		menu.clear();
 
 		MenuInflater inflater = getActivity().getMenuInflater();
-		inflater.inflate(R.menu.commit, menu);
+		inflater.inflate(R.menu.issue, menu);
 		super.onPrepareOptionsMenu(menu);
 	}
 

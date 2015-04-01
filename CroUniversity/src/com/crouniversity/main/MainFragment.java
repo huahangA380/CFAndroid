@@ -98,6 +98,7 @@ public class MainFragment extends Fragment {
 		super.onAttach(activity);
 		((MainActivity) activity).onSectionAttached(getArguments().getInt(
 				ARG_SECTION_NUMBER));
+
 	}
 
 	@Override

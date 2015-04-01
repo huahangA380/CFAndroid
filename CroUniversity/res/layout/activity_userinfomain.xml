@@ -10,7 +10,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="#CCCCCCCC"
+        android:background="@drawable/user_home_bg"
         android:orientation="vertical" >
 
         <TextView
@@ -218,7 +218,7 @@
     </RelativeLayout>
 
     <com.crouniversity.roundimg.RoundImageView
-        android:id="@+id/roundimg"
+        android:id="@+id/user_avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignBottom="@id/header"

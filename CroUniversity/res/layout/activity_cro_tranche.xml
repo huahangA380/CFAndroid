@@ -13,6 +13,7 @@
             android:id="@+id/tranche01"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -59,6 +60,7 @@
             android:id="@+id/tranche02"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -105,6 +107,7 @@
             android:id="@+id/tranche03"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -151,6 +154,7 @@
             android:id="@+id/tranche04"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -197,6 +201,7 @@
             android:id="@+id/tranche05"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:orientation="vertical" >
 
             <LinearLayout

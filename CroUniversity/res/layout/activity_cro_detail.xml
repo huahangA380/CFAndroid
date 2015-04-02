@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical" >
 
     <ScrollView
@@ -45,20 +46,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/white"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/tv_cro_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:gravity="center"
-                    android:text="项目名称" />
-
-                <TextView
-                    android:id="@+id/tv_cro_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="项目介绍" />
+                    android:singleLine="true"
+                    android:text="在非归档模式下，当进行日志切换时不会启动归档进程将日志保存到归档日志中"
+                    android:textSize="25sp" />
 
                 <TextView
                     android:id="@+id/tv_cro_author"
@@ -79,6 +80,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/layout_cro_plan" />
+
+            <TextView
+                android:id="@+id/tv_cro_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="项目介绍" />
         </LinearLayout>
     </ScrollView>
 
@@ -86,6 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.1"
+        android:background="@color/white"
         android:orientation="vertical" >
 
         <Button

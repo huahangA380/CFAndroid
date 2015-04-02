@@ -9,12 +9,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/white" />
+
         <LinearLayout
             android:id="@+id/tranche01"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:clickable="false"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,9 +67,12 @@
         <LinearLayout
             android:id="@+id/tranche02"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:clickable="false"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -106,9 +117,12 @@
         <LinearLayout
             android:id="@+id/tranche03"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:clickable="false"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -153,9 +167,12 @@
         <LinearLayout
             android:id="@+id/tranche04"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:clickable="false"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -200,9 +217,12 @@
         <LinearLayout
             android:id="@+id/tranche05"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:clickable="false"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"

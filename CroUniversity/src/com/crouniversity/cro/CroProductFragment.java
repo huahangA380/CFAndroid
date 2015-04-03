@@ -44,6 +44,8 @@ public class CroProductFragment extends Fragment {
 	MyAdapter adapter = null;
 	private Mode currentMode;
 	private final static String SELECTNUM = "selectnum";
+	private View v;
+	private RoundImageView round;
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -51,6 +53,7 @@ public class CroProductFragment extends Fragment {
 		super.onAttach(activity);
 		((MainActivity) activity).onSectionAttached(getArguments().getInt(
 				SELECTNUM));
+
 	}
 
 	@Override
@@ -61,14 +64,13 @@ public class CroProductFragment extends Fragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(final LayoutInflater inflater,
+			final ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		View v = inflater.inflate(R.layout.fragment_cro_main, container, false);
+		v = inflater.inflate(R.layout.fragment_cro_main, container, false);
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
-
-		RoundImageView round = (RoundImageView) v.findViewById(R.id.roundimg);
+		round = (RoundImageView) v.findViewById(R.id.roundimg);
 		round.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -92,8 +94,8 @@ public class CroProductFragment extends Fragment {
 						currentMode = refreshView.getCurrentMode();
 						if (Mode.PULL_FROM_START == currentMode) {
 							// Update the LastUpdatedLabel
-							refreshView.getLoadingLayoutProxy()
-									.setLastUpdatedLabel(label);
+							// refreshView.getLoadingLayoutProxy()
+							// .setLastUpdatedLabel(label);
 
 							// D work to refresh the list here.
 							new GetDataTask().execute();
@@ -125,6 +127,7 @@ public class CroProductFragment extends Fragment {
 			}
 		});
 		return v;
+
 	}
 
 	private class GetDataTask extends

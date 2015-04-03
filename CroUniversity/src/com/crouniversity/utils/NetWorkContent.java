@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-public class NetWorkContent extends Activity {
+public class NetWorkContent {
 
 	/**
 	 * 判断网络
@@ -16,7 +16,7 @@ public class NetWorkContent extends Activity {
 
 		// TODO 自动生成的方法存根
 		ConnectivityManager cm = (ConnectivityManager) context
-				.getSystemService(CONNECTIVITY_SERVICE);
+				.getSystemService(Activity.CONNECTIVITY_SERVICE);
 		NetworkInfo info = cm.getActiveNetworkInfo();
 		if (info != null && info.isConnected()) {
 			return true;

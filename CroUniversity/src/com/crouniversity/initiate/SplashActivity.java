@@ -18,7 +18,7 @@ import com.example.crouniversity.R;
 
 public class SplashActivity extends Activity {
 	private WebView web_content;
-	private final String URL_LOCAL = "file:///android_asset/Splash.html";
+	private final String URL_LOCAL = "file:///android_asset/index.html";
 	private final String URL_INTENT = "http://weibo.com";
 	private int currentversioncode;// µ±Ç°°æ±¾ºÅ
 	private SharedPreferences preferences;

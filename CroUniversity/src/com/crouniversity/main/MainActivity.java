@@ -7,8 +7,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
@@ -26,18 +24,19 @@ import com.example.crouniversity.R;
 @SuppressLint("InflateParams")
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
-	FragmentManager fragmentManager = getSupportFragmentManager();
-	CroProductFragment croProductFragment = new CroProductFragment();
-	MainFragment mainFragment = new MainFragment();
-	SnsStudyMainFragment snsStudyMainFragment = new SnsStudyMainFragment();
-	MainSettingFragment mainSettingFragment = new MainSettingFragment();
-	SnsLiveMainFragment snsLivewFragment = new SnsLiveMainFragment();
-	CroCommunityFragment croCommunityFragment = new CroCommunityFragment();
-	CroTravelFragment croTravelFragment = new CroTravelFragment();
-	CroCateFragment croCateFragment = new CroCateFragment();
-	SnsOriginalityFragment snsOriginalityFragment = new SnsOriginalityFragment();
+	private FragmentManager fragmentManager = getSupportFragmentManager();
+	private CroProductFragment croProductFragment = new CroProductFragment();
+	private MainFragment mainFragment = new MainFragment();
+	private SnsStudyMainFragment snsStudyMainFragment = new SnsStudyMainFragment();
+	private MainSettingFragment mainSettingFragment = new MainSettingFragment();
+	private SnsLiveMainFragment snsLivewFragment = new SnsLiveMainFragment();
+	private CroCommunityFragment croCommunityFragment = new CroCommunityFragment();
+	private CroTravelFragment croTravelFragment = new CroTravelFragment();
+	private CroCateFragment croCateFragment = new CroCateFragment();
+	private SnsOriginalityFragment snsOriginalityFragment = new SnsOriginalityFragment();
 	private long firstime = 0;
 	private View view;
+
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
@@ -78,6 +77,7 @@ public class MainActivity extends ActionBarActivity implements
 			fragmentManager.beginTransaction()
 					.replace(R.id.container, mainFragment.newInstance(0))
 					.commit();
+
 			break;
 
 		case 1:
@@ -85,6 +85,7 @@ public class MainActivity extends ActionBarActivity implements
 			fragmentManager.beginTransaction()
 					.replace(R.id.container, croProductFragment.newInstance(1))
 					.commit();
+
 			break;
 		case 2:
 
@@ -92,6 +93,7 @@ public class MainActivity extends ActionBarActivity implements
 					.beginTransaction()
 					.replace(R.id.container,
 							croCommunityFragment.newInstance(2)).commit();
+
 			break;
 		case 3:
 
@@ -136,6 +138,7 @@ public class MainActivity extends ActionBarActivity implements
 
 			break;
 		}
+
 	}
 
 	public void onSectionAttached(int number) {
@@ -181,33 +184,33 @@ public class MainActivity extends ActionBarActivity implements
 		actionBar.setTitle(mTitle);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		if (!mNavigationDrawerFragment.isDrawerOpen()) {
-			// Only show items in the action bar relevant to this screen
-			// if the drawer is not showing. Otherwise, let the drawer
-			// decide what to show in the action bar.
-			getMenuInflater().inflate(R.menu.main, menu);
-			restoreActionBar();
-			return true;
-		}
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		if (id == R.id.action_example) {
-			item.setIcon(R.drawable.ic_drawer);
-		}
-		return super.onOptionsItemSelected(item);
-	}
+	// @Override
+	// public boolean onCreateOptionsMenu(Menu menu) {
+	// if (!mNavigationDrawerFragment.isDrawerOpen()) {
+	// // Only show items in the action bar relevant to this screen
+	// // if the drawer is not showing. Otherwise, let the drawer
+	// // decide what to show in the action bar.
+	// getMenuInflater().inflate(R.menu.main, menu);
+	// restoreActionBar();
+	// return true;
+	// }
+	// return super.onCreateOptionsMenu(menu);
+	// }
+	//
+	// @Override
+	// public boolean onOptionsItemSelected(MenuItem item) {
+	// // Handle action bar item clicks here. The action bar will
+	// // automatically handle clicks on the Home/Up button, so long
+	// // as you specify a parent activity in AndroidManifest.xml.
+	// int id = item.getItemId();
+	// if (id == R.id.action_settings) {
+	// return true;
+	// }
+	// if (id == R.id.action_example) {
+	// item.setIcon(R.drawable.ic_drawer);
+	// }
+	// return super.onOptionsItemSelected(item);
+	// }
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {// 重写back键
@@ -226,4 +229,29 @@ public class MainActivity extends ActionBarActivity implements
 		return super.onKeyDown(keyCode, event);
 	}
 
+	// /**
+	// * 切换页面的重载，优化了fragment的切换
+	// *
+	// * @param f
+	// * @param descString
+	// */
+	// public void switchFragment(Fragment from, Fragment to) {
+	// if (from == null || to == null)
+	// return;
+	// fragmentTransaction = getSupportFragmentManager().beginTransaction()
+	// .setCustomAnimations(android.R.anim.fade_in,
+	// android.R.anim.fade_out);
+	// if (!to.isAdded()) {
+	// // 隐藏当前的fragment，add下一个到Activity中
+	// fragmentTransaction.hide(from).add(R.id.container, to).commit();
+	// } else {
+	// // 隐藏当前的fragment，显示下一个
+	// fragmentTransaction.hide(from).show(to).commit();
+	// }
+	// }
+
+	@Override
+	protected void onSaveInstanceState(Bundle bundle) {
+		// Empty
+	}
 }

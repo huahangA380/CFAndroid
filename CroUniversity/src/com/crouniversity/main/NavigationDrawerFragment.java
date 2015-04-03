@@ -164,7 +164,7 @@ public class NavigationDrawerFragment extends Fragment {
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setHomeButtonEnabled(true);
 		actionBar.setBackgroundDrawable(getResources().getDrawable(
-				android.R.color.holo_orange_light));
+				R.drawable.sigin_button));
 
 		// ActionBarDrawerToggle ties together the the proper interactions
 		// between the navigation drawer and the action bar app icon.

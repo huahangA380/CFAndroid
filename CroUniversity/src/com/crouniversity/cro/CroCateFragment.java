@@ -41,9 +41,10 @@ public class CroCateFragment extends Fragment {
 
 	private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
 	private PullToRefreshListView mPullRefreshListView;
-	MyAdapter adapter = null;
+	private MyAdapter adapter = null;
 	private Mode currentMode;
 	private final static String SELECTNUM = "selectnum";
+	private View v;
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -64,7 +65,7 @@ public class CroCateFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		View v = inflater.inflate(R.layout.fragment_cro_main, container, false);
+		v = inflater.inflate(R.layout.fragment_cro_main, container, false);
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 

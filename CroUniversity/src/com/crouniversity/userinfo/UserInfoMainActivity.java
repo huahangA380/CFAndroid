@@ -21,7 +21,6 @@ public class UserInfoMainActivity extends BaseActivity implements
 	private RoundImageView user_avatar;
 	private TextView tv_camera;
 	private TextView tv_photo;
-	private TextView tv_message;
 	private Dialog d;
 	private static final int CAMEAEA_CODE = 1;
 	private static final int PHOTO_CODE = 2;
@@ -50,10 +49,8 @@ public class UserInfoMainActivity extends BaseActivity implements
 		d.setContentView(R.layout.dialog_avatar);
 		tv_camera = (TextView) d.findViewById(R.id.tv_camera);
 		tv_photo = (TextView) d.findViewById(R.id.tv_photo);
-		tv_message = (TextView) this.findViewById(R.id.tv_message);
 		tv_camera.setOnClickListener(this);
 		tv_photo.setOnClickListener(this);
-		tv_message.setOnClickListener(this);
 	}
 
 	@Override
@@ -79,14 +76,8 @@ public class UserInfoMainActivity extends BaseActivity implements
 					PHOTO_CODE);
 
 			break;
-		case R.id.tv_message:
-
-			startActivity(new Intent(getApplicationContext(),
-					SystemMessagesActivity.class));
-
-			break;
 		default:
-
+			d.dismiss();
 			break;
 
 		}

@@ -3,6 +3,7 @@ package com.crouniversity.main;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -18,12 +19,14 @@ import com.crouniversity.setting.MainSettingFragment;
 import com.crouniversity.sns.SnsLiveMainFragment;
 import com.crouniversity.sns.SnsOriginalityFragment;
 import com.crouniversity.sns.SnsStudyMainFragment;
+import com.crouniversity.utils.DeBugLog;
 import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
 
 @SuppressLint("InflateParams")
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
+<<<<<<< HEAD
 	private FragmentManager fragmentManager = getSupportFragmentManager();
 	private CroProductFragment croProductFragment = new CroProductFragment();
 	private MainFragment mainFragment = new MainFragment();
@@ -34,6 +37,19 @@ public class MainActivity extends ActionBarActivity implements
 	private CroTravelFragment croTravelFragment = new CroTravelFragment();
 	private CroCateFragment croCateFragment = new CroCateFragment();
 	private SnsOriginalityFragment snsOriginalityFragment = new SnsOriginalityFragment();
+=======
+	FragmentManager fragmentManager = getSupportFragmentManager();
+	CroProductFragment croProductFragment;// = new CroProductFragment();
+	MainFragment mainFragment;// = new MainFragment();
+	SnsStudyMainFragment snsStudyMainFragment;// = new SnsStudyMainFragment();
+	MainSettingFragment mainSettingFragment;// = new MainSettingFragment();
+	SnsLiveMainFragment snsLivewFragment;// = new SnsLiveMainFragment();
+	CroCommunityFragment croCommunityFragment;// = new CroCommunityFragment();
+	CroTravelFragment croTravelFragment;// = new CroTravelFragment();
+	CroCateFragment croCateFragment;// = new CroCateFragment();
+	SnsOriginalityFragment snsOriginalityFragment;// = new
+													// SnsOriginalityFragment();
+>>>>>>> parent of 45097ff... 更改Fragment状态
 	private long firstime = 0;
 	private View view;
 
@@ -70,75 +86,178 @@ public class MainActivity extends ActionBarActivity implements
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
+		DeBugLog.logI("***************", position + " ");
 
+		// 开启一个Fragment事务
+		FragmentTransaction transaction = fragmentManager.beginTransaction();
+		// 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况
+		hideFragment(transaction);
 		switch (position) {
 		case 0:
+<<<<<<< HEAD
 
 			fragmentManager.beginTransaction()
 					.replace(R.id.container, mainFragment.newInstance(0))
 					.commit();
 
+=======
+			if (mainFragment == null) {
+				mainFragment = new MainFragment();
+				transaction
+						.replace(R.id.container, mainFragment.newInstance(0));
+			} else {
+				transaction.show(mainFragment.newInstance(0));
+			}
+			// fragmentManager.beginTransaction()
+			// .replace(R.id.container, mainFragment.newInstance(0))
+			// .commit();
+>>>>>>> parent of 45097ff... 更改Fragment状态
 			break;
 
 		case 1:
+			if (croProductFragment == null) {
 
+<<<<<<< HEAD
 			fragmentManager.beginTransaction()
 					.replace(R.id.container, croProductFragment.newInstance(1))
 					.commit();
 
+=======
+				croProductFragment = new CroProductFragment();
+				transaction.replace(R.id.container,
+						croProductFragment.newInstance(1)).setCustomAnimations(
+						android.R.anim.fade_in, android.R.anim.fade_out);
+			} else {
+
+				transaction.show(croProductFragment);
+			}
+			// fragmentManager.beginTransaction()
+			// .replace(R.id.container, croProductFragment.newInstance(1))
+			// .commit();
+>>>>>>> parent of 45097ff... 更改Fragment状态
 			break;
 		case 2:
+			if (croCommunityFragment == null) {
 
+<<<<<<< HEAD
 			fragmentManager
 					.beginTransaction()
 					.replace(R.id.container,
 							croCommunityFragment.newInstance(2)).commit();
 
+=======
+				croCommunityFragment = new CroCommunityFragment();
+				transaction.replace(R.id.container,
+						croCommunityFragment.newInstance(2))
+						.setCustomAnimations(android.R.anim.fade_in,
+								android.R.anim.fade_out);
+			} else {
+
+				transaction.show(croCommunityFragment);
+			}
+			// fragmentManager
+			// .beginTransaction()
+			// .replace(R.id.container,
+			// croCommunityFragment.newInstance(2)).commit();
+>>>>>>> parent of 45097ff... 更改Fragment状态
 			break;
 		case 3:
+			if (croTravelFragment == null) {
 
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, croTravelFragment.newInstance(3))
-					.commit();
+				croTravelFragment = new CroTravelFragment();
+				transaction.replace(R.id.container,
+						croTravelFragment.newInstance(3)).setCustomAnimations(
+						android.R.anim.fade_in, android.R.anim.fade_out);
+			} else {
+
+				transaction.show(croCommunityFragment);
+			}
+			// fragmentManager.beginTransaction()
+			// .replace(R.id.container, croTravelFragment.newInstance(3))
+			// .commit();
 			break;
 		case 4:
+			if (croCateFragment == null) {
 
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, croCateFragment.newInstance(4))
-					.commit();
+				croCateFragment = new CroCateFragment();
+				transaction.replace(R.id.container,
+						croCateFragment.newInstance(4));
+			} else {
+
+				transaction.show(croCommunityFragment);
+			}
+			// fragmentManager.beginTransaction()
+			// .replace(R.id.container, croCateFragment.newInstance(4))
+			// .commit();
 			break;
 		case 5:
+			if (snsStudyMainFragment == null) {
 
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							snsStudyMainFragment.newInstance(5)).commit();
+				snsStudyMainFragment = new SnsStudyMainFragment();
+				transaction.replace(R.id.container,
+						snsStudyMainFragment.newInstance(5));
+			} else {
+
+				transaction.show(snsStudyMainFragment);
+			}
+			// fragmentManager
+			// .beginTransaction()
+			// .replace(R.id.container,
+			// snsStudyMainFragment.newInstance(5)).commit();
 			break;
 		case 6:
+			if (snsLivewFragment == null) {
 
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, snsLivewFragment.newInstance(6))
-					.commit();
+				snsLivewFragment = new SnsLiveMainFragment();
+				transaction.replace(R.id.container,
+						snsLivewFragment.newInstance(6));
+			} else {
+
+				transaction.show(snsLivewFragment);
+			}
+			// fragmentManager.beginTransaction()
+			// .replace(R.id.container, snsLivewFragment.newInstance(6))
+			// .commit();
 			break;
 		case 7:
+			if (snsOriginalityFragment == null) {
 
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container,
-							snsOriginalityFragment.newInstance(7)).commit();
+				snsOriginalityFragment = new SnsOriginalityFragment();
+				transaction.replace(R.id.container,
+						snsOriginalityFragment.newInstance(7));
+			} else {
+
+				transaction.show(snsOriginalityFragment);
+			}
+			// fragmentManager
+			// .beginTransaction()
+			// .replace(R.id.container,
+			// snsOriginalityFragment.newInstance(7)).commit();
 			break;
 		case 8:
+			if (mainSettingFragment == null) {
 
-			fragmentManager
-					.beginTransaction()
-					.replace(R.id.container, mainSettingFragment.newInstance(8))
-					.commit();
+				mainSettingFragment = new MainSettingFragment();
+				transaction.replace(R.id.container,
+						mainSettingFragment.newInstance(8));
+			} else {
+
+				transaction.show(mainSettingFragment);
+			}
+			// fragmentManager
+			// .beginTransaction()
+			// .replace(R.id.container, mainSettingFragment.newInstance(8))
+			// .commit();
 			break;
 		default:
 
 			break;
 		}
+<<<<<<< HEAD
 
+=======
+		transaction.commit();
+>>>>>>> parent of 45097ff... 更改Fragment状态
 	}
 
 	public void onSectionAttached(int number) {
@@ -229,6 +348,7 @@ public class MainActivity extends ActionBarActivity implements
 		return super.onKeyDown(keyCode, event);
 	}
 
+<<<<<<< HEAD
 	// /**
 	// * 切换页面的重载，优化了fragment的切换
 	// *
@@ -253,5 +373,36 @@ public class MainActivity extends ActionBarActivity implements
 	@Override
 	protected void onSaveInstanceState(Bundle bundle) {
 		// Empty
+=======
+	public void hideFragment(FragmentTransaction transaction) {
+		// TODO Auto-generated method stub
+		if (mainFragment != null) {
+			transaction.hide(mainFragment);
+		}
+		if (croProductFragment != null) {
+			transaction.hide(croProductFragment);
+		}
+		if (croCommunityFragment != null) {
+			transaction.hide(croCommunityFragment);
+		}
+		if (croCateFragment != null) {
+			transaction.hide(croCateFragment);
+		}
+		if (croTravelFragment != null) {
+			transaction.hide(croTravelFragment);
+		}
+		if (snsLivewFragment != null) {
+			transaction.hide(snsLivewFragment);
+		}
+		if (snsOriginalityFragment != null) {
+			transaction.hide(snsOriginalityFragment);
+		}
+		if (snsStudyMainFragment != null) {
+			transaction.hide(snsStudyMainFragment);
+		}
+		if (mainSettingFragment != null) {
+			transaction.hide(mainSettingFragment);
+		}
+>>>>>>> parent of 45097ff... 更改Fragment状态
 	}
 }

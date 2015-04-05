@@ -6,7 +6,6 @@ import java.util.HashMap;
 
 import org.json.JSONArray;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -45,15 +44,6 @@ public class MainFragmentCro extends Fragment {
 	private PullToRefreshListView mPullRefreshListView;
 	MyAdapter adapter = null;
 	private Mode currentMode;
-	private final static String SELECTNUM = "selectnum";
-
-	@Override
-	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
-		super.onAttach(activity);
-		((MainActivity) activity).onSectionAttached(getArguments().getInt(
-				SELECTNUM));
-	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -327,16 +317,6 @@ public class MainFragmentCro extends Fragment {
 
 			return convertView;
 		}
-
-	}
-
-	public MainFragmentCro newInstance(int selectnum) {
-		// TODO Auto-generated method stub
-		MainFragmentCro fragment = new MainFragmentCro();
-		Bundle args = new Bundle();
-		args.putInt(SELECTNUM, selectnum);
-		fragment.setArguments(args);
-		return fragment;
 
 	}
 

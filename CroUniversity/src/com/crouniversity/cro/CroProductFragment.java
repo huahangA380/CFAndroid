@@ -41,7 +41,7 @@ public class CroProductFragment extends Fragment {
 
 	private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
 	private PullToRefreshListView mPullRefreshListView;
-	MyAdapter adapter = null;
+	private MyAdapter adapter = null;
 	private Mode currentMode;
 	private final static String SELECTNUM = "selectnum";
 	private View v;
@@ -53,7 +53,6 @@ public class CroProductFragment extends Fragment {
 		super.onAttach(activity);
 		((MainActivity) activity).onSectionAttached(getArguments().getInt(
 				SELECTNUM));
-
 	}
 
 	@Override

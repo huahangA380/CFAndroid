@@ -63,7 +63,7 @@ public class MainActivity extends ActionBarActivity implements
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		CroProductFragment croProductFragment = new CroProductFragment();
-		MainFragment mainFragment = new MainFragment();
+		HomeFragment homeFragment = new HomeFragment();
 		SnsStudyMainFragment snsStudyMainFragment = new SnsStudyMainFragment();
 		MainSettingFragment mainSettingFragment = new MainSettingFragment();
 		SnsLiveMainFragment snsLivewFragment = new SnsLiveMainFragment();
@@ -74,8 +74,7 @@ public class MainActivity extends ActionBarActivity implements
 		switch (position) {
 		case 0:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, mainFragment.newInstance(0))
-					.commit();
+					.replace(R.id.container, homeFragment.newInstance(0)).commit();
 			break;
 
 		case 1:
@@ -129,12 +128,15 @@ public class MainActivity extends ActionBarActivity implements
 		switch (number) {
 		case 0:
 			mTitle = getString(R.string.homepage);
+
 			break;
 		case 1:
 			mTitle = getString(R.string.productcro);
+
 			break;
 		case 2:
 			mTitle = getString(R.string.charitypro);
+
 			break;
 		case 3:
 			mTitle = getString(R.string.travelpro);

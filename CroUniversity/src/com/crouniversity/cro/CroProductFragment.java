@@ -11,7 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.os.Handler;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +30,7 @@ import com.crouniversity.roundimg.RoundImageView;
 import com.crouniversity.roundimg.ShowHideOnScroll;
 import com.crouniversity.userinfo.UserInfoMainActivity;
 import com.crouniversity.utils.GetPicture;
+import com.crouniversity.utils.ProgressFragment;
 import com.crouniversity.utils.ReadTextFile;
 import com.example.crouniversity.R;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -37,7 +38,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
-public class CroProductFragment extends Fragment {
+public class CroProductFragment extends ProgressFragment {
 
 	private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
 	private PullToRefreshListView mPullRefreshListView;
@@ -46,6 +47,39 @@ public class CroProductFragment extends Fragment {
 	private final static String SELECTNUM = "selectnum";
 	private View v;
 	private RoundImageView round;
+	private Handler mHandler;
+	private Runnable mShowContentRunnable = new Runnable() {
+
+		@Override
+		public void run() {
+			setContentShown(true);
+		}
+
+	};
+
+	private void obtainData() {
+		// Show indeterminate progress
+		setContentShown(false);
+
+		mHandler = new Handler();
+		mHandler.postDelayed(mShowContentRunnable, 200);// 200毫秒为视图加载时间，及json获取时间
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		// Setup content view
+		setContentView(v);
+		// Setup text for empty content
+		setEmptyText("空");
+		obtainData();
+	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		mHandler.removeCallbacks(mShowContentRunnable);
+	}
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -67,6 +101,7 @@ public class CroProductFragment extends Fragment {
 			final ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		v = inflater.inflate(R.layout.fragment_cro_main, container, false);
+
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 		round = (RoundImageView) v.findViewById(R.id.roundimg);
@@ -125,8 +160,7 @@ public class CroProductFragment extends Fragment {
 				startActivity(new Intent(getActivity(), CroDetailActivity.class));
 			}
 		});
-		return v;
-
+		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 
 	private class GetDataTask extends

@@ -13,9 +13,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -28,7 +25,6 @@ import android.widget.TextView;
 import com.crouniversity.roundimg.RoundImageView;
 import com.crouniversity.roundimg.ShowHideOnScroll;
 import com.crouniversity.sns.SnsDetailActivity;
-import com.crouniversity.sns.SnsIssueActivity;
 import com.crouniversity.sns.SnsMainGetData;
 import com.crouniversity.sns.SnsViewHolder;
 import com.crouniversity.userinfo.UserInfoMainActivity;
@@ -58,7 +54,7 @@ public class MainFragmentSns extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View v = inflater.inflate(R.layout.fragment_sns_main, container, false);
-		setHasOptionsMenu(true);
+
 		mPullRefreshListView = (PullToRefreshListView) v
 				.findViewById(R.id.pull_refresh_list);
 
@@ -308,27 +304,6 @@ public class MainFragmentSns extends Fragment {
 			return convertView;
 		}
 
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		if (id == R.id.issue) {
-			startActivity(new Intent(getActivity(), SnsIssueActivity.class));
-			return true;
-		}
-
-		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	public void onPrepareOptionsMenu(Menu menu) {
-
-		menu.clear();
-
-		MenuInflater inflater = getActivity().getMenuInflater();
-		inflater.inflate(R.menu.issue, menu);
-		super.onPrepareOptionsMenu(menu);
 	}
 
 	public MainFragmentSns newInstance(int selectnum) {

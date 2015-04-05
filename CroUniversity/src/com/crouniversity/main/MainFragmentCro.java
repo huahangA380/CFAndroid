@@ -320,4 +320,13 @@ public class MainFragmentCro extends Fragment {
 
 	}
 
+	public MainFragmentCro newInstance(int selectnum) {
+		// TODO Auto-generated method stub
+		MainFragmentCro fragment = new MainFragmentCro();
+		Bundle args = new Bundle();
+		args.putInt("selectnum", selectnum);
+		fragment.setArguments(args);
+		return fragment;
+
+	}
 }

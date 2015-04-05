@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
 			// TODO Auto-generated method stub
 			switch (arg0) {
 			case 0:
-				mainCro = new MainFragmentCro();
+				mainCro = new MainFragmentCro().newInstance(0);
 				return mainCro;
 			case 1:
 				mainSns = new MainFragmentSns().newInstance(1);

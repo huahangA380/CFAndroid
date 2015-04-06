@@ -45,7 +45,7 @@ public class CroProductFragment extends ProgressFragment {
 	private MyAdapter adapter = null;
 	private Mode currentMode;
 	private final static String SELECTNUM = "selectnum";
-	private View v;
+	private View view;
 	private RoundImageView round;
 	private Handler mHandler;
 	private Runnable mShowContentRunnable = new Runnable() {
@@ -69,9 +69,9 @@ public class CroProductFragment extends ProgressFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		// Setup content view
-		setContentView(v);
+		setContentView(view);
 		// Setup text for empty content
-		setEmptyText("Пе");
+		setEmptyText(R.string.empty);
 		obtainData();
 	}
 
@@ -100,11 +100,11 @@ public class CroProductFragment extends ProgressFragment {
 	public View onCreateView(final LayoutInflater inflater,
 			final ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		v = inflater.inflate(R.layout.fragment_cro_main, container, false);
+		view = inflater.inflate(R.layout.fragment_cro_main, container, false);
 
-		mPullRefreshListView = (PullToRefreshListView) v
+		mPullRefreshListView = (PullToRefreshListView) view
 				.findViewById(R.id.pull_refresh_list);
-		round = (RoundImageView) v.findViewById(R.id.roundimg);
+		round = (RoundImageView) view.findViewById(R.id.roundimg);
 		round.setOnClickListener(new OnClickListener() {
 
 			@Override

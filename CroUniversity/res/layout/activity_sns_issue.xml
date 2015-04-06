@@ -13,7 +13,28 @@
         android:hint="@string/content"
         android:minHeight="50dp"
         android:textColor="@color/font_black_comment" >
-        <requestFocus />
+
+        <requestFocus />
     </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_enter_emoji_normal" />
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/message_button_add" />
+    </LinearLayout>
 
 </LinearLayout>

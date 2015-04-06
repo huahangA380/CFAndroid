@@ -33,5 +33,6 @@
     <string name="title">标题</string>
     <string name="content">内容</string>
     <string name="issue">发布</string>
+    <string name="empty">内容为空</string>
 
 </resources>

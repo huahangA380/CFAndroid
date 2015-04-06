@@ -66,14 +66,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="项目发起人" />
+                    android:text="项目发起人"
+                    android:textSize="@dimen/font_setting_size" />
 
                 <TextView
                     android:id="@+id/tv_cro_sns"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="项目评论" />
+                    android:text="项目评论"
+                    android:textSize="@dimen/font_setting_size" />
             </LinearLayout>
 
             <include
@@ -85,7 +87,8 @@
                 android:id="@+id/tv_cro_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="项目介绍" />
+                android:text="项目介绍"
+                android:textSize="@dimen/font_setting_size" />
         </LinearLayout>
     </ScrollView>
 

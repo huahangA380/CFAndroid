@@ -7,7 +7,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -17,7 +16,7 @@ public class BaseActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+		// requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		overridePendingTransition(android.R.anim.fade_in,
 				android.R.anim.fade_out);// 淡入淡出效果

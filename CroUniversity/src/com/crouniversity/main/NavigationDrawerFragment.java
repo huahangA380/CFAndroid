@@ -169,7 +169,9 @@ public class NavigationDrawerFragment extends Fragment {
 		// between the navigation drawer and the action bar app icon.
 		mDrawerToggle = new ActionBarDrawerToggle(getActivity(), /* host Activity */
 		mDrawerLayout, /* DrawerLayout object */
-		R.drawable.ic_drawer, /* nav drawer image to replace 'Up' caret */
+		R.drawable.ic_drawer, /*
+							 * nav drawer image to replace 'Up' caret
+							 */
 		R.string.navigation_drawer_open, /*
 										 * "open drawer" description for
 										 * accessibility
@@ -206,6 +208,7 @@ public class NavigationDrawerFragment extends Fragment {
 							.getDefaultSharedPreferences(getActivity());
 					sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true)
 							.apply();
+
 				}
 
 				getActivity().supportInvalidateOptionsMenu(); // calls

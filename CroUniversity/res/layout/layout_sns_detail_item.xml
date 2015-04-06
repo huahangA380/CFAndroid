@@ -80,7 +80,6 @@
                 android:text="Thomas Bergersen 全名 Thomas Jacob Bergersen，为著名的预告片制作团队“Two Steps From Hell”的创始人之 一。2011年他与伙伴 Nick Phoenix 一起制作发行了首张个人创作专辑《Illusions》"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/font_black_content"
-                android:textIsSelectable="true"
                 android:textSize="15sp" />
 
             <ImageView

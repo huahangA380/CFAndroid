@@ -10,7 +10,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 
 import com.crouniversity.cro.CroCateFragment;
 import com.crouniversity.cro.CroCommunityFragment;
@@ -28,6 +27,7 @@ public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 	private long firstime = 0;
 	private View view;
+
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
@@ -43,12 +43,12 @@ public class MainActivity extends ActionBarActivity implements
 	@SuppressLint("InlinedApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		overridePendingTransition(android.R.anim.fade_in,
 				android.R.anim.fade_out);// 淡入淡出效果
 		view = getLayoutInflater().inflate(R.layout.toast_cutsomeview, null);
+
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -74,7 +74,8 @@ public class MainActivity extends ActionBarActivity implements
 		switch (position) {
 		case 0:
 			fragmentManager.beginTransaction()
-					.replace(R.id.container, homeFragment.newInstance(0)).commit();
+					.replace(R.id.container, homeFragment.newInstance(0))
+					.commit();
 			break;
 
 		case 1:
@@ -200,7 +201,7 @@ public class MainActivity extends ActionBarActivity implements
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {// 重写back键
-		// TODO 自动生成的方法存根
+		// TODO Auto-generated method stub
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			long secondtime = System.currentTimeMillis();
 			if (secondtime - firstime > 3000) { // 如果大于3秒 弹出toast提示

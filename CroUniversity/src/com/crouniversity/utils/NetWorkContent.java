@@ -14,7 +14,7 @@ public class NetWorkContent {
 	 */
 	public static boolean isNetworkConnected(Context context) {
 
-		// TODO 自动生成的方法存根
+		// TODO Auto-generated method stub
 		ConnectivityManager cm = (ConnectivityManager) context
 				.getSystemService(Activity.CONNECTIVITY_SERVICE);
 		NetworkInfo info = cm.getActiveNetworkInfo();

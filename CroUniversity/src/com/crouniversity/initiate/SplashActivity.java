@@ -7,19 +7,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
 import com.crouniversity.utils.NetWorkContent;
 import com.crouniversity.utils.ToastUtil;
 import com.example.crouniversity.R;
 
 public class SplashActivity extends Activity {
-	private WebView web_content;
-	private final String URL_LOCAL = "file:///android_asset/index.html";
-	private final String URL_INTENT = "http://weibo.com";
+	private ImageView img_content;
+
 	private int currentversioncode;// 当前版本号
 	private SharedPreferences preferences;
 	private int count;// 上一版本号
@@ -33,12 +31,16 @@ public class SplashActivity extends Activity {
 		setContentView(R.layout.activity_splash);
 		overridePendingTransition(android.R.anim.fade_in,
 				android.R.anim.fade_out);// 淡入淡出效果
-		web_content = (WebView) findViewById(R.id.web_splash_content);
-		web_content.setWebViewClient(new MyWebViewClient());
-		web_content.loadUrl(URL_INTENT);
-		WebSettings webSetting = web_content.getSettings();
-		webSetting.setJavaScriptEnabled(true);
-		webSetting.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+		img_content = (ImageView) findViewById(R.id.img_splash_content);
+		img_content.setBackgroundResource(R.drawable.splash_list);
+		final AnimationDrawable animationDrawable = (AnimationDrawable) img_content
+				.getBackground();
+		img_content.post(new Runnable() {
+			@Override
+			public void run() {
+				animationDrawable.start();
+			}
+		});
 		currentversioncode = getVersionCode(getApplicationContext());
 		startMainActivity();
 		readShare();
@@ -138,22 +140,6 @@ public class SplashActivity extends Activity {
 					SplashActivity.this.finish();
 				};
 			}.start();
-		}
-	}
-
-	private class MyWebViewClient extends WebViewClient {
-		@Override
-		public boolean shouldOverrideUrlLoading(WebView view, String url) {
-			// TODO Auto-generated method stub
-			view.loadUrl(url);
-			return true;
-		}
-
-		@Override
-		public void onReceivedError(WebView view, int errorCode,
-				String description, String failingUrl) {
-			// TODO Auto-generated method stub
-			view.loadUrl(URL_LOCAL);
 		}
 	}
 

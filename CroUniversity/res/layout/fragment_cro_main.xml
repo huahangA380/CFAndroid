@@ -30,6 +30,7 @@
         android:scrollbarThumbVertical="@drawable/login_button_normal"
         android:scrollbars="none"
         android:smoothScrollbar="true"
+        ptr:ptrAnimationStyle="rotate"
         ptr:ptrMode="both" />
 
     <com.crouniversity.roundimg.RoundImageView

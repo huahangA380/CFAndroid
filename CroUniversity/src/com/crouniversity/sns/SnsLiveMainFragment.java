@@ -7,7 +7,6 @@ import java.util.HashMap;
 import org.json.JSONArray;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,9 +21,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.crouniversity.main.MainActivity;
 import com.crouniversity.roundimg.RoundImageView;
@@ -41,7 +38,7 @@ public class SnsLiveMainFragment extends Fragment {
 
 	private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
 	private PullToRefreshListView mPullRefreshListView;
-	MyAdapter adapter = null;
+	private SnsLvAdapter adapter;
 	private Mode currentMode;
 	private final static String SELECTNUM = "selectnum";
 
@@ -57,7 +54,8 @@ public class SnsLiveMainFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		adapter = new MyAdapter(getActivity());
+		listItem = SnsMainGetData.getData(getActivity());// 获取LIST数据
+		adapter = new SnsLvAdapter(getActivity(), listItem);
 	}
 
 	@Override
@@ -110,7 +108,6 @@ public class SnsLiveMainFragment extends Fragment {
 					}
 				});
 
-		listItem = SnsMainGetData.getData(getActivity());// 获取LIST数据
 		// 设置适配器
 		ListView actualListView = mPullRefreshListView.getRefreshableView();
 		actualListView.setAdapter(adapter);
@@ -249,71 +246,6 @@ public class SnsLiveMainFragment extends Fragment {
 
 			super.onPostExecute(result);
 		}
-	}
-
-	public class MyAdapter extends BaseAdapter {
-
-		private LayoutInflater mInflater;
-
-		public MyAdapter(Context context) {
-			this.mInflater = LayoutInflater.from(context);
-		}
-
-		@Override
-		public int getCount() {
-			// TODO Auto-generated method stub
-			return listItem.size();
-		}
-
-		@Override
-		public Object getItem(int position) {
-			// TODO Auto-generated method stub
-			return listItem.get(position);
-		}
-
-		@Override
-		public long getItemId(int position) {
-			// TODO Auto-generated method stub
-			return position;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-
-			SnsViewHolder holder = null;
-			if (convertView == null) {
-
-				holder = new SnsViewHolder();
-
-				convertView = mInflater.inflate(R.layout.layout_sns_main_item,
-						parent, false);
-				holder.title = (TextView) convertView
-						.findViewById(R.id.tv_studysns_title);
-				holder.content = (TextView) convertView
-						.findViewById(R.id.tv_studysns_conents);
-				holder.author = (TextView) convertView
-						.findViewById(R.id.tv_var_man);
-				holder.date = (TextView) convertView
-						.findViewById(R.id.tv_var_time);
-				holder.num = (TextView) convertView
-						.findViewById(R.id.tv_comment_num);
-				convertView.setTag(holder);
-
-			} else {
-
-				holder = (SnsViewHolder) convertView.getTag();
-			}
-
-			holder.title.setText((String) listItem.get(position).get("title"));
-			holder.content.setText((String) listItem.get(position).get(
-					"content"));
-			holder.author
-					.setText((String) listItem.get(position).get("author"));
-			holder.date.setText((String) listItem.get(position).get("date"));
-			holder.num.setText((String) listItem.get(position).get("num"));
-			return convertView;
-		}
-
 	}
 
 	public SnsLiveMainFragment newInstance(int selectnum) {

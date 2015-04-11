@@ -31,6 +31,7 @@
         android:scrollbars="none"
         android:smoothScrollbar="true"
         ptr:ptrAnimationStyle="rotate"
+        ptr:ptrDrawable="@drawable/ic_launcher"
         ptr:ptrMode="both" />
 
     <com.crouniversity.roundimg.RoundImageView

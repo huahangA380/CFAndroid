@@ -2,8 +2,11 @@
 <resources>
 
     <!-- Default style attribute which will be used during construction of FloatingActionButton. -->
-    <attr name="floatingActionButtonStyle" format="reference" />
+    <!--
+         <attr name="floatingActionButtonStyle" format="reference" />
     <attr name="icActionEdit" format="reference" />
+    -->
+
 
     <declare-styleable name="PagerSlidingTabStrip">
         <attr name="pstsIndicatorColor" format="color" />

@@ -41,6 +41,7 @@ public class CroCateFragment extends ProgressFragment {
 	private final static String SELECTNUM = "selectnum";
 	private View view;
 	private Handler mHandler;
+
 	private Runnable mShowContentRunnable = new Runnable() {
 
 		@Override
@@ -98,9 +99,9 @@ public class CroCateFragment extends ProgressFragment {
 		view = inflater.inflate(R.layout.fragment_cro_main, container, false);
 		mPullRefreshListView = (PullToRefreshListView) view
 				.findViewById(R.id.pull_refresh_list);
-
 		RoundImageView round = (RoundImageView) view
 				.findViewById(R.id.roundimg);
+
 		round.setOnClickListener(new OnClickListener() {
 
 			@Override

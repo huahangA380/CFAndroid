@@ -82,4 +82,5 @@ public class BaseActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 }

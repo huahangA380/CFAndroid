@@ -37,6 +37,15 @@ public class HomeFragment extends Fragment {
 		tabs.setTextSize(40);
 		pager.setAdapter(new ViewPagerAdapater(getFragmentManager(), titles));
 		tabs.setViewPager(pager);
+		pager.setPageTransformer(false, new ViewPager.PageTransformer() {
+
+			@Override
+			public void transformPage(View page, float position) {
+				// TODO Auto-generated method stub
+				final float normalizedposition = Math.abs(Math.abs(position) - 1);
+				page.setAlpha(normalizedposition);// ·­Ò³¶¯»­
+			}
+		});
 		return view;
 	}
 

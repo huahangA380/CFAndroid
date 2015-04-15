@@ -1,10 +1,10 @@
 package com.crouniversity.roundimg;
 
-import com.example.crouniversity.R;
-
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+
+import com.example.crouniversity.R;
 
 /**
  * Implementation of {@link View.OnTouchListener} which shows/hides specified

@@ -1,7 +1,5 @@
 package com.crouniversity.utils;
 
-import com.example.crouniversity.R;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import com.example.crouniversity.R;
 
 public class ProgressFragment extends Fragment {
 

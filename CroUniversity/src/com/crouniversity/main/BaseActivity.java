@@ -1,5 +1,6 @@
 package com.crouniversity.main;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -7,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -83,4 +85,13 @@ public class BaseActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	public void hideSoftInputView() {
+		InputMethodManager manager = ((InputMethodManager) this
+				.getSystemService(Activity.INPUT_METHOD_SERVICE));
+		if (getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+			if (getCurrentFocus() != null)
+				manager.hideSoftInputFromWindow(getCurrentFocus()
+						.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+		}
+	}
 }

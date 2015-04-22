@@ -127,15 +127,15 @@ public class SnsDetailActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.edit_user_comment:
+		case R.id.edit_user_comment:// 点击文本输入框
+
 			if (layout_more.getVisibility() == View.VISIBLE) {
 				layout_add.setVisibility(View.GONE);
 				layout_emo.setVisibility(View.GONE);
 				layout_more.setVisibility(View.GONE);
 			}
 			break;
-		case R.id.btn_chat_emo:
-
+		case R.id.btn_chat_emo:// 点击笑脸图标
 			if (layout_more.getVisibility() == View.GONE) {
 				showEditState(true);
 			} else {
@@ -146,8 +146,9 @@ public class SnsDetailActivity extends BaseActivity implements OnClickListener {
 					layout_more.setVisibility(View.GONE);
 				}
 			}
+
 			break;
-		case R.id.btn_chat_add:
+		case R.id.btn_chat_add:// 添加按钮-显示图片、拍照
 			if (layout_more.getVisibility() == View.GONE) {
 				layout_more.setVisibility(View.VISIBLE);
 				layout_add.setVisibility(View.VISIBLE);
@@ -161,7 +162,6 @@ public class SnsDetailActivity extends BaseActivity implements OnClickListener {
 					layout_more.setVisibility(View.GONE);
 				}
 			}
-			break;
 
 		default:
 			break;
@@ -198,6 +198,7 @@ public class SnsDetailActivity extends BaseActivity implements OnClickListener {
 				((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
 						.showSoftInput(edit_user_comment, 0);
 		}
+
 	}
 
 }

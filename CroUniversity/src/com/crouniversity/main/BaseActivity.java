@@ -94,4 +94,5 @@ public class BaseActivity extends ActionBarActivity {
 						.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 		}
 	}
+
 }

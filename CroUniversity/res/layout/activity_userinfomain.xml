@@ -231,9 +231,6 @@
         android:layout_marginEnd="@dimen/floating_action_button_margin_normal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:src="@drawable/banner"
-        imagecontrol:border_inside_color="#bc0978"
-        imagecontrol:border_outside_color="#ba3456"
-        imagecontrol:border_thickness="1dp" />
+        android:src="@drawable/banner" />
 
 </RelativeLayout>

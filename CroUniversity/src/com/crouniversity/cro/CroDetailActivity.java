@@ -11,14 +11,13 @@ import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
+import android.widget.LinearLayout;
 
 import com.crouniversity.main.BaseActivity;
 import com.example.crouniversity.R;
@@ -50,8 +49,6 @@ public class CroDetailActivity extends BaseActivity implements
 	int pageIndex = 1;
 	boolean isTaskRun;
 
-	float X1 = 0, X2 = 0, Y1 = 0, Y2 = 0;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,14 +67,16 @@ public class CroDetailActivity extends BaseActivity implements
 		});
 		// 载入图片资源ID
 		imgIdArray = new int[] { R.drawable.item01, R.drawable.item02,
-				R.drawable.item03, R.drawable.item04, R.drawable.item05,
-				R.drawable.item06, R.drawable.item07, R.drawable.item08 };
+				R.drawable.item03, R.drawable.item04, };
 
 		// 将点点加入到ViewGroup中
 		tips = new ImageView[imgIdArray.length];
 		for (int i = 0; i < tips.length; i++) {
 			ImageView imageView = new ImageView(this);
-			imageView.setLayoutParams(new LayoutParams(15, 15));
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+					15, 15);
+			params.setMargins(3, 0, 3, 0);// 左，上，右，下
+			imageView.setLayoutParams(params);
 			imageView.setScaleType(ScaleType.FIT_XY);
 
 			tips[i] = imageView;
@@ -105,23 +104,6 @@ public class CroDetailActivity extends BaseActivity implements
 		// 设置ViewPager的默认项, 设置为长度的100倍，这样子开始就能往左滑动
 		viewPager.setCurrentItem((mImageViews.length) * 100);
 
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		// TODO Auto-generated method stub
-		if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			X1 = event.getX();
-			Y1 = event.getY();
-		}
-		if (event.getAction() == MotionEvent.ACTION_UP) {
-			X2 = event.getX();
-			Y2 = event.getY();
-			if (Y2 - Y1 > 300) {
-				finish();
-			}
-		}
-		return super.onTouchEvent(event);
 	}
 
 	/**

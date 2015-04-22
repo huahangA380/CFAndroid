@@ -45,8 +45,6 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:alpha="0.9"
-        android:src="@drawable/banner"
-        imagecontrol:border_outside_color="#ba3456"
-        imagecontrol:border_thickness="1dp" />
+        android:src="@drawable/banner" />
 
 </RelativeLayout>

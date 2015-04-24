@@ -22,7 +22,7 @@
             android:layout_marginStart="120dp"
             android:layout_marginTop="100dp"
             android:gravity="bottom"
-            android:text="用户名"
+            android:text="Danlis"
             android:textColor="@color/font_black_content" />
     </LinearLayout>
 
@@ -46,7 +46,7 @@
                 android:layout_weight="5"
                 android:gravity="center|start"
                 android:padding="5dp"
-                android:text="邮箱"
+                android:text="Libery@163.com"
                 android:textColor="@color/font_black_content"
                 android:textSize="@dimen/font_setting_size" />
 
@@ -57,7 +57,7 @@
                 android:layout_weight="5"
                 android:gravity="center|end"
                 android:padding="5dp"
-                android:text="注册时间"
+                android:text="2015-4-10"
                 android:textColor="@color/font_black_content" />
         </LinearLayout>
 
@@ -75,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|start"
-                android:text="发起项目数"
+                android:text="发起项目数:2"
                 android:textColor="@color/font_black_content" />
 
             <TextView
@@ -83,7 +83,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|start"
-                android:text="发帖数"
+                android:text="发帖数:1"
                 android:textColor="@color/font_black_content" />
         </LinearLayout>
 
@@ -105,7 +105,7 @@
                     android:layout_height="40dp"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/banner" />
+                    android:src="@drawable/ic_message_at_me" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -121,7 +121,8 @@
                     android:layout_gravity="center_vertical|end"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_notify_txt" />
+                    android:src="@drawable/ic_notify_txt"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -136,7 +137,7 @@
                     android:layout_height="40dp"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/banner" />
+                    android:src="@drawable/ic_message_comment" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -152,7 +153,8 @@
                     android:layout_gravity="center_vertical|end"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_notify_txt" />
+                    android:src="@drawable/ic_notify_txt"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -167,7 +169,7 @@
                     android:layout_height="40dp"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/banner" />
+                    android:src="@drawable/ic_message_notification" />
 
                 <TextView
                     android:id="@+id/tv_message"
@@ -184,7 +186,8 @@
                     android:layout_gravity="center_vertical|end"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_notify_txt" />
+                    android:src="@drawable/ic_notify_txt"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -192,7 +195,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@color/white"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:visibility="gone" >
 
                 <ImageView
                     android:layout_width="40dp"

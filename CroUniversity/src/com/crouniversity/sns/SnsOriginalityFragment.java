@@ -26,6 +26,7 @@ import android.widget.ListView;
 import com.crouniversity.main.MainActivity;
 import com.crouniversity.roundimg.RoundImageView;
 import com.crouniversity.roundimg.ShowHideOnScroll;
+import com.crouniversity.sign.SignInActivity;
 import com.crouniversity.userinfo.UserInfoMainActivity;
 import com.crouniversity.utils.ReadTextFile;
 import com.example.crouniversity.R;
@@ -262,7 +263,7 @@ public class SnsOriginalityFragment extends Fragment {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
 		if (id == R.id.issue) {
-			startActivity(new Intent(getActivity(), SnsIssueActivity.class));
+			startActivity(new Intent(getActivity(), SignInActivity.class));
 			return true;
 		}
 

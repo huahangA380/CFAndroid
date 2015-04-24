@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CroUniversity</string>
+    <string name="app_name">询诺网</string>
     <string name="homepage">首页</string>
     <string name="productcro">产品众筹</string>
     <string name="charitypro">公益众筹</string>

@@ -58,7 +58,7 @@
                     android:focusableInTouchMode="true"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="在非归档模式下，当进行日志切换时不会启动归档进程将日志保存到归档日志中"
+                    android:text="西塘明信片"
                     android:textSize="25sp" />
 
                 <TextView
@@ -66,7 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="项目发起人"
+                    android:text="发起人：Danlis"
                     android:textSize="@dimen/font_setting_size" />
 
                 <TextView
@@ -75,19 +75,101 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="项目评论"
+                    android:textColor="#3bbd79"
                     android:textSize="@dimen/font_setting_size" />
             </LinearLayout>
 
-            <include
+            <!--
+                 <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/layout_cro_plan" />
+            -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <ProgressBar
+                    android:id="@+id/pro_cro_completed"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dip"
+                    android:layout_marginBottom="3dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_marginTop="2dip"
+                    android:max="100"
+                    android:progress="26"
+                    android:progressDrawable="@drawable/custom_progressbar" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/completed" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/fund" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/remaindays" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_main_completed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="130" />
+
+                <TextView
+                    android:id="@+id/tv_main_fund"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="500" />
+
+                <TextView
+                    android:id="@+id/tv_main_remaindays"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="20" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_cro_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="项目介绍"
+                android:text="    5月初，我将去美丽的西塘旅游，有没有想过收到一张印着江南小镇西塘的邮戳、来自美丽风景祝福的明星片呢?\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n西塘诗话\n \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t桨橹欸乃\n \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t碧波荡漾\n \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t木船悠行\n \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t尘封的记忆\n \t\t\t\t\t\t\t\t\t\t\t\t\t\t在人们的步履中开启\n \t\t\t\t\t\t\t\t\t西塘-------一个关于四季都不会凝固的诗话"
                 android:textSize="@dimen/font_setting_size" />
         </LinearLayout>
     </ScrollView>
